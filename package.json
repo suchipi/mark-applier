@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "description": "Markdown-to-Website Generator, GitHub README style",
   "main": "dist/index.js",
-  "type": "module",
   "types": "src/index.ts",
   "bin": "dist/cli.js",
   "scripts": {
@@ -19,15 +18,17 @@
   "author": "Lily Skye <me@suchipi.com>",
   "license": "MIT",
   "dependencies": {
+    "@suchipi/macaroni": "^0.2.0",
     "clefairy": "^0.4.0",
+    "github-markdown-css": "^5.2.0",
     "rehype-stringify": "^9.0.3",
     "remark-gfm": "^3.0.1",
     "remark-parse": "^10.0.1",
     "remark-rehype": "^10.1.0",
-    "to-vfile": "^7.2.4",
     "unified": "^10.1.2"
   },
   "devDependencies": {
+    "@types/dedent": "^0.7.0",
     "@types/node": "^18.16.2",
     "typescript": "^5.0.4"
   }

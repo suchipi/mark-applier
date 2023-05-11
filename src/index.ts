@@ -1,19 +1,33 @@
-import { read } from "to-vfile";
-import { unified } from "unified";
-import remarkParse from "remark-parse";
-import remarkGfm from "remark-gfm";
-import remarkRehype from "remark-rehype";
-import rehypeStringify from "rehype-stringify";
+import { Rule } from "@suchipi/macaroni";
+import { htmlToPage } from "./html-to-page.js";
+import { markdownToHtml } from "./markdown-to-html.js";
 
-main();
+export type Options = {
+  raw?: boolean;
+  title?: string;
+  templateDir?: string;
+  templateRules?: Array<Rule>;
+};
 
-async function main() {
-  const file = await unified()
-    .use(remarkParse)
-    .use(remarkGfm)
-    .use(remarkRehype)
-    .use(rehypeStringify)
-    .process(await read("./pages/index.md"));
+export async function applyMarks(
+  input: string,
+  options: Options
+): Promise<string> {
+  const html = await markdownToHtml(input);
+  if (options.raw) {
+    return html;
+  } else {
+    const htmlToPageOptions: Parameters<typeof htmlToPage>[1] = {
+      title: options.title,
+    };
+    if (options.templateDir) {
+      htmlToPageOptions.additionalIncludePaths = [options.templateDir];
+    }
+    if (options.templateRules) {
+      htmlToPageOptions.additionalRules = options.templateRules;
+    }
 
-  console.log(String(file));
+    const pageHtml = htmlToPage(html, htmlToPageOptions);
+    return pageHtml;
+  }
 }

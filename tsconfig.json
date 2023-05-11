@@ -5,7 +5,7 @@
     "declaration": true,
     "lib": ["es2020"],
     "target": "es2020",
-    "module": "es2022",
+    "module": "CommonJS",
     "outDir": "dist",
 
     "strict": true,

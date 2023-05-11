@@ -1,4 +1,4 @@
-- use https://github.com/sindresorhus/github-markdown-css
-- with this https://github.com/wooorm/starry-night#install
-- and mdast plugin that runs resolve-link.ts on links and images
-- CLI (clefairy etc)
+- [x] use https://github.com/sindresorhus/github-markdown-css
+- [ ] with this https://github.com/wooorm/starry-night#install
+- [ ] and mdast plugin that runs resolve-link.ts on links and images
+- [x] CLI (clefairy etc)
