@@ -15,6 +15,16 @@ export async function applyMarks(
 ): Promise<string> {
   const html = await markdownToHtml(input);
   if (options.raw) {
+    for (const key of ["templateDir", "templateRules", "title"] as const) {
+      if (options[key] != null) {
+        console.warn(
+          `WARNING: When using the "raw" option, the ${JSON.stringify(
+            key
+          )} option is ignored.`
+        );
+      }
+    }
+
     return html;
   } else {
     const htmlToPageOptions: Parameters<typeof htmlToPage>[1] = {
