@@ -6,18 +6,21 @@ export async function markdownToHtml(input: string): Promise<string> {
     { default: remarkGfm },
     { default: remarkRehype },
     { default: rehypeStringify },
+    { rehypeStarryNight },
   ] = await Promise.all([
     import("unified"),
     import("remark-parse"),
     import("remark-gfm"),
     import("remark-rehype"),
     import("rehype-stringify"),
+    import("./rehype-starry-night.mjs"),
   ]);
 
   const result = await unified()
     .use(remarkParse)
     .use(remarkGfm)
     .use(remarkRehype)
+    .use(rehypeStarryNight)
     .use(rehypeStringify)
     .process({ value: input });
 

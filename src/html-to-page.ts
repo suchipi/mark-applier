@@ -1,6 +1,13 @@
 import path from "node:path";
 import { process, includeRule, Rule } from "@suchipi/macaroni";
 
+function nodeModulesDirForPackage(packageName: string) {
+  const specifier = packageName + "/package.json";
+  const pkgJsonPath = require.resolve(specifier);
+
+  return pkgJsonPath.replace(new RegExp(specifier + "$"), "");
+}
+
 export function htmlToPage(
   content: string,
   options: {
@@ -10,9 +17,13 @@ export function htmlToPage(
   }
 ): string {
   const rootTemplate = require.resolve("../src/templates/__rootTemplate.tmpl");
-  const templateDir = path.dirname(rootTemplate);
-  const cssFile = require.resolve("github-markdown-css");
-  const cssDir = path.dirname(cssFile);
+
+  const nodeModulesDirs = new Set();
+  nodeModulesDirs.add(nodeModulesDirForPackage("github-markdown-css"));
+  nodeModulesDirs.add(nodeModulesDirForPackage("@wooorm/starry-night"));
+
+  const ownNodeModulesDir = path.join(__dirname, "..", "..");
+  nodeModulesDirs.add(ownNodeModulesDir);
 
   const titleRule: Rule = (input, api) => {
     const replacement = options.title
@@ -29,8 +40,7 @@ export function htmlToPage(
   const result = process(rootTemplate, {
     includePaths: [
       ...(options.additionalIncludePaths || []),
-      templateDir,
-      cssDir,
+      ...nodeModulesDirs,
     ],
     rules: [includeRule, titleRule, contentRule].concat(
       options.additionalRules || []

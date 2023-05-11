@@ -6,7 +6,8 @@
   "types": "src/index.ts",
   "bin": "dist/cli.js",
   "scripts": {
-    "build": "rm -rf dist && tsc && chmod +x dist/cli.js"
+    "build": "rm -rf dist && tsc && chmod +x dist/cli.js",
+    "manual-test": "tests/generate-all.sh && http-server -p 8080 tests/output & open-cli http://localhost:8080"
   },
   "keywords": [
     "website",
@@ -19,17 +20,24 @@
   "license": "MIT",
   "dependencies": {
     "@suchipi/macaroni": "^0.2.0",
+    "@wooorm/starry-night": "^2.0.0",
     "clefairy": "^0.4.0",
     "github-markdown-css": "^5.2.0",
+    "hast": "^1.0.0",
+    "hast-util-to-string": "^2.0.0",
     "rehype-stringify": "^9.0.3",
     "remark-gfm": "^3.0.1",
     "remark-parse": "^10.0.1",
     "remark-rehype": "^10.1.0",
-    "unified": "^10.1.2"
+    "unified": "^10.1.2",
+    "unist-util-visit": "^4.1.2"
   },
   "devDependencies": {
-    "@types/dedent": "^0.7.0",
     "@types/node": "^18.16.2",
+    "glomp": "^3.1.1",
+    "http-server": "^14.1.1",
+    "open-cli": "^7.2.0",
+    "path-less-traveled": "^2.0.0",
     "typescript": "^5.0.4"
   }
 }
