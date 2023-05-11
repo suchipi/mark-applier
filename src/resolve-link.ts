@@ -1,3 +1,5 @@
+// TODO this isn't used yet
+
 import fs from "node:fs";
 import path from "node:path";
 

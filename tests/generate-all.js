@@ -1,29 +1,42 @@
 #!/usr/bin/env node
-const fs = require("node:fs");
-const path = require("node:path");
-const glomp = require("glomp").default;
-const { pathMarker } = require("path-less-traveled");
-const markApplier = require("..");
+import fs from "node:fs";
+import path from "node:path";
+import clefairy from "clefairy";
+import glomp from "glomp";
+import { pathMarker } from "path-less-traveled";
+import * as markApplier from "../dist/index.js";
+import { rel } from "../dist/rel.js";
 
 function ensureDir(dirPath) {
-  fs.mkdirSync(dirPath, { recursive: true });
+  // fs.mkdirSync(dirPath, { recursive: true });
 }
 
-const inputDir = pathMarker(path.resolve(__dirname, "pages"));
-const outputDir = pathMarker(path.resolve(__dirname, "generated"));
+async function main() {
+  const rootDir = pathMarker(rel("..", import.meta.url));
+  const inputDir = pathMarker(rel("./input", import.meta.url));
+  const outputDir = pathMarker(rel("./output", import.meta.url));
 
-const files = glomp.findMatchesSync(inputDir());
-for (const file of files) {
-  const targetPath = outputDir(inputDir.relative(file));
-  ensureDir(path.dirname(targetPath));
+  const files = await glomp.findMatches(inputDir());
+  for (const file of files) {
+    const targetPath = outputDir(inputDir.relative(file));
+    ensureDir(path.dirname(targetPath));
 
-  if (file.endsWith(".md")) {
-    const content = fs.readFileSync(file, "utf-8");
-    const html = markApplier.applyMarks(content, {
-      title: inputDir.relative(file),
-    });
-    fs.writeFileSync(targetPath, html);
-  } else {
-    fs.copyFileSync(file, targetPath);
+    if (file.endsWith(".md")) {
+      console.log(
+        `compiling ${rootDir.relative(file)} to ${rootDir.relative(targetPath)}`
+      );
+      const content = await fs.promises.readFile(file, "utf-8");
+      const html = await markApplier.applyMarks(content, {
+        title: inputDir.relative(file),
+      });
+      // await fs.promises.writeFile(targetPath, html);
+    } else {
+      console.log(
+        `copying ${rootDir.relative(file)} to ${rootDir.relative(targetPath)}`
+      );
+      // await fs.promises.writeFile(file, targetPath);
+    }
   }
 }
+
+clefairy.run({}, main);

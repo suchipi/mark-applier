@@ -1,5 +1,8 @@
-import path from "node:path";
+import { createRequire } from "node:module";
 import { process, includeRule, Rule } from "@suchipi/macaroni";
+import { rel } from "./rel.js";
+
+const require = createRequire(import.meta.url);
 
 function nodeModulesDirForPackage(packageName: string) {
   const specifier = packageName + "/package.json";
@@ -16,13 +19,13 @@ export function htmlToPage(
     additionalRules?: Array<Rule>;
   }
 ): string {
-  const rootTemplate = require.resolve("../src/templates/__rootTemplate.tmpl");
+  const rootTemplate = require.resolve("../templates/__rootTemplate.tmpl");
 
   const nodeModulesDirs = new Set();
   nodeModulesDirs.add(nodeModulesDirForPackage("github-markdown-css"));
   nodeModulesDirs.add(nodeModulesDirForPackage("@wooorm/starry-night"));
 
-  const ownNodeModulesDir = path.join(__dirname, "..", "..");
+  const ownNodeModulesDir = rel("../..", import.meta.url);
   nodeModulesDirs.add(ownNodeModulesDir);
 
   const titleRule: Rule = (input, api) => {

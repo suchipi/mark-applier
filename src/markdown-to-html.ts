@@ -1,28 +1,18 @@
-export async function markdownToHtml(input: string): Promise<string> {
-  // have to use dynamic import because of CommonJS/ESM business...
-  const [
-    { unified },
-    { default: remarkParse },
-    { default: remarkGfm },
-    { default: remarkRehype },
-    { default: rehypeStringify },
-    { rehypeStarryNight },
-  ] = await Promise.all([
-    import("unified"),
-    import("remark-parse"),
-    import("remark-gfm"),
-    import("remark-rehype"),
-    import("rehype-stringify"),
-    import("./rehype-starry-night.mjs"),
-  ]);
+import { unified } from "unified";
+import remarkParse from "remark-parse";
+import remarkGfm from "remark-gfm";
+import remarkRehype from "remark-rehype";
+import rehypeStringify from "rehype-stringify";
+import { rehypeStarryNight } from "./rehype-starry-night.js";
 
-  const result = await unified()
+export async function markdownToHtml(input: string): Promise<string> {
+  const processor = unified()
     .use(remarkParse)
     .use(remarkGfm)
     .use(remarkRehype)
     .use(rehypeStarryNight)
-    .use(rehypeStringify)
-    .process({ value: input });
+    .use(rehypeStringify);
 
+  const result = await processor.process({ value: input });
   return result.toString();
 }
