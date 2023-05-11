@@ -2,13 +2,16 @@
   "name": "mark-applier",
   "version": "0.1.0",
   "description": "Markdown-to-Website Generator, GitHub README style",
-  "main": "dist/index.js",
   "type": "module",
+  "main": "dist/index.js",
   "types": "src/index.ts",
   "bin": "dist/cli.js",
   "scripts": {
     "build": "rm -rf dist && tsc && chmod +x dist/cli.js",
-    "manual-test": "tests/generate-all.sh && http-server -p 8080 tests/output & open-cli http://localhost:8080"
+    "test": "npm run compile-tests && concurrently 'npm run host-tests' 'npm run open-test-results'",
+    "compile-tests": "tests/generate-all.js",
+    "host-tests": "http-server -p 8080 tests/output",
+    "open-test-results": "open-cli http://localhost:8080"
   },
   "keywords": [
     "website",
@@ -35,6 +38,7 @@
   },
   "devDependencies": {
     "@types/node": "^18.16.2",
+    "concurrently": "^8.0.1",
     "glomp": "^3.1.1",
     "http-server": "^14.1.1",
     "open-cli": "^7.2.0",
