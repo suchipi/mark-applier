@@ -1,0 +1,3 @@
+- [ ] support getting page title from frontmatter
+- [ ] update documentation in README re: template stuff
+- [ ] release it!!!
