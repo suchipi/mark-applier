@@ -4,11 +4,11 @@
 
 #### Left-aligned image
 
-<img src="image.png" width="182" align="left">
+<img src="/sample-image.png" width="182" align="left">
 
 #### Right-aligned image
 
-<img src="image.png" width="182" align="right">
+<img src="/sample-image.png" width="182" align="right">
 
 ### Code snippet
 
