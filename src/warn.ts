@@ -1,4 +1,4 @@
-import * as kleur from "kleur";
+import kleur from "kleur";
 
 const printedMessages = new Set<string>();
 
