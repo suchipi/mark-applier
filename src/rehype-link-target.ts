@@ -1,5 +1,5 @@
 import type { Plugin } from "unified";
-import type { Root, ElementContent } from "hast";
+import type { Root } from "hast";
 import { visit } from "unist-util-visit";
 import { warn } from "./warn.js";
 
@@ -12,7 +12,11 @@ export const rehypeLinkTarget: Plugin<[options: { origin?: string }], Root> = (
         return;
       }
 
-      const href = node.properties?.href;
+      if (node.properties == null) {
+        return;
+      }
+
+      const href = node.properties.href as string | null;
       if (!href) {
         return;
       }
@@ -25,11 +29,10 @@ export const rehypeLinkTarget: Plugin<[options: { origin?: string }], Root> = (
       }
 
       const pageUrl = new URL(options.origin);
-      const hrefUrl = new URL(String(href), options.origin);
+      const hrefUrl = new URL(href, options.origin);
       const isExternal = pageUrl.origin !== hrefUrl.origin;
 
       if (isExternal) {
-        node.properties = node.properties || {};
         node.properties.target = "_blank";
         node.properties.rel = "nofollow noopener noreferrer";
       }

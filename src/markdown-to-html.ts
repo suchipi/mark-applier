@@ -4,6 +4,7 @@ import remarkGfm from "remark-gfm";
 import remarkRehype from "remark-rehype";
 import rehypeStringify from "rehype-stringify";
 import { rehypeLinkTarget } from "./rehype-link-target.js";
+import { rehypeLinkMdToHtml } from "./rehype-link-md-to-html.js";
 import { rehypeStarryNight } from "./rehype-starry-night.js";
 
 export async function markdownToHtml(
@@ -15,6 +16,7 @@ export async function markdownToHtml(
     .use(remarkGfm)
     .use(remarkRehype, { allowDangerousHtml: true })
     .use(rehypeLinkTarget, options)
+    .use(rehypeLinkMdToHtml, options)
     .use(rehypeStarryNight)
     .use(rehypeStringify, { allowDangerousHtml: true });
 
