@@ -9,9 +9,9 @@ export async function markdownToHtml(input: string): Promise<string> {
   const processor = unified()
     .use(remarkParse)
     .use(remarkGfm)
-    .use(remarkRehype)
+    .use(remarkRehype, { allowDangerousHtml: true })
     .use(rehypeStarryNight)
-    .use(rehypeStringify);
+    .use(rehypeStringify, { allowDangerousHtml: true });
 
   const result = await processor.process({ value: input });
   return result.toString();
