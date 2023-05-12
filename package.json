@@ -29,6 +29,7 @@
     "github-markdown-css": "^5.2.0",
     "hast": "^1.0.0",
     "hast-util-to-string": "^2.0.0",
+    "kleur": "^4.1.5",
     "rehype-stringify": "^9.0.3",
     "remark-gfm": "^3.0.1",
     "remark-parse": "^10.0.1",

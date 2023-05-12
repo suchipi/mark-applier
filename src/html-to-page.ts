@@ -15,6 +15,7 @@ export function htmlToPage(
   content: string,
   options: {
     title?: string;
+    origin?: string;
     additionalIncludePaths?: Array<string>;
     additionalRules?: Array<Rule>;
   }
@@ -28,16 +29,20 @@ export function htmlToPage(
   const ownNodeModulesDir = rel("../..", import.meta.url);
   nodeModulesDirs.add(ownNodeModulesDir);
 
+  const titleReplacement = options.title
+    ? `<title>${options.title}</title>\n`
+    : "\n";
   const titleRule: Rule = (input, api) => {
-    const replacement = options.title
-      ? `<title>${options.title}</title>\n`
-      : "\n";
-
-    return input.content.replace(/#TITLE/g, replacement);
+    return input.content.replace(/#TITLE/g, titleReplacement);
   };
 
   const contentRule: Rule = (input, api) => {
     return input.content.replace(/#CONTENT/g, content);
+  };
+
+  const originReplacement = options.origin ?? "/";
+  const originRule: Rule = (input, api) => {
+    return input.content.replace(/#ORIGIN/g, originReplacement);
   };
 
   const result = process(rootTemplate, {
@@ -45,7 +50,7 @@ export function htmlToPage(
       ...(options.additionalIncludePaths || []),
       ...nodeModulesDirs,
     ],
-    rules: [includeRule, titleRule, contentRule].concat(
+    rules: [includeRule, titleRule, contentRule, originRule].concat(
       options.additionalRules || []
     ),
   });

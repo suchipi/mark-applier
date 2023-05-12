@@ -1,9 +1,10 @@
-// from https://github.com/wooorm/starry-night#example-integrate-with-unified-remark-and-rehype
+// Based on https://github.com/wooorm/starry-night#example-integrate-with-unified-remark-and-rehype
 import type { Plugin } from "unified";
 import type { Root, ElementContent } from "hast";
 import { visit } from "unist-util-visit";
 import { toString } from "hast-util-to-string";
 import { createStarryNight, common } from "@wooorm/starry-night";
+import { warn } from "./warn.js";
 
 export const rehypeStarryNight: Plugin<[], Root> = () => {
   const starryNightPromise = createStarryNight(common);
@@ -38,10 +39,15 @@ export const rehypeStarryNight: Plugin<[], Root> = () => {
 
       if (typeof language !== "string") return;
 
-      const scope = starryNight.flagToScope(language.slice(prefix.length));
+      const langWithoutPrefix = language.slice(prefix.length);
+      const scope = starryNight.flagToScope(langWithoutPrefix);
 
-      // Maybe warn?
-      if (!scope) return;
+      if (!scope) {
+        warn(
+          `Skipping syntax highlighting for unknown language: ${langWithoutPrefix}`
+        );
+        return;
+      }
 
       const fragment = starryNight.highlight(toString(head), scope);
       const children: Array<ElementContent> = fragment.children as any;
