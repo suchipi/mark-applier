@@ -26,7 +26,7 @@ export const rehypeLinkTarget: Plugin<[options: { origin?: string }], Root> = (
 
       const pageUrl = new URL(options.origin);
       const hrefUrl = new URL(String(href), options.origin);
-      const isExternal = pageUrl.origin === hrefUrl.origin;
+      const isExternal = pageUrl.origin !== hrefUrl.origin;
 
       if (isExternal) {
         node.properties = node.properties || {};
