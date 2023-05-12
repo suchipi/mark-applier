@@ -31,6 +31,7 @@ async function main() {
       const content = await fs.promises.readFile(file, "utf-8");
       const html = await markApplier.applyMarks(content, {
         title: inputDir.relative(file),
+        origin: "http://localhost",
       });
       await fs.promises.writeFile(targetPath, html);
     } else {
