@@ -8,7 +8,7 @@ import * as markApplier from "../dist/index.js";
 import { rel } from "../dist/rel.js";
 
 function ensureDir(dirPath) {
-  // fs.mkdirSync(dirPath, { recursive: true });
+  fs.mkdirSync(dirPath, { recursive: true });
 }
 
 async function main() {
@@ -16,12 +16,15 @@ async function main() {
   const inputDir = pathMarker(rel("./input", import.meta.url));
   const outputDir = pathMarker(rel("./output", import.meta.url));
 
+  await fs.promises.rmdir(outputDir(), { recursive: true, force: true });
+
   const files = await glomp.findMatches(inputDir());
   for (const file of files) {
-    const targetPath = outputDir(inputDir.relative(file));
+    let targetPath = outputDir(inputDir.relative(file));
     ensureDir(path.dirname(targetPath));
 
     if (file.endsWith(".md")) {
+      targetPath = targetPath.replace(/\.md$/, ".html");
       console.log(
         `compiling ${rootDir.relative(file)} to ${rootDir.relative(targetPath)}`
       );
@@ -29,12 +32,12 @@ async function main() {
       const html = await markApplier.applyMarks(content, {
         title: inputDir.relative(file),
       });
-      // await fs.promises.writeFile(targetPath, html);
+      await fs.promises.writeFile(targetPath, html);
     } else {
       console.log(
         `copying ${rootDir.relative(file)} to ${rootDir.relative(targetPath)}`
       );
-      // await fs.promises.writeFile(file, targetPath);
+      await fs.promises.copyFile(file, targetPath);
     }
   }
 }
