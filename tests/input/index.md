@@ -10,6 +10,14 @@ Or maybe you want to go to [the fixture](./fixture)?
 
 That first link had no filename extension, and that second link had a `.md` extension, and that third link had a `.html` extension. Those all work and resolve properly.
 
+```js
+console.log("this is some js");
+```
+
+```md
+# this is some markdown
+```
+
 ---
 
 You reached the bottom of the page! Congrats. Maybe you want to go to <https://google.com> next?

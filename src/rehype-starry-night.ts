@@ -3,11 +3,11 @@ import type { Plugin } from "unified";
 import type { Root, ElementContent } from "hast";
 import { visit } from "unist-util-visit";
 import { toString } from "hast-util-to-string";
-import { createStarryNight, common } from "@wooorm/starry-night";
+import { createStarryNight, all } from "@wooorm/starry-night";
 import { warn } from "./warn.js";
 
 export const rehypeStarryNight: Plugin<[], Root> = () => {
-  const starryNightPromise = createStarryNight(common);
+  const starryNightPromise = createStarryNight(all);
   const prefix = "language-";
 
   return async function (tree) {
@@ -39,7 +39,12 @@ export const rehypeStarryNight: Plugin<[], Root> = () => {
 
       if (typeof language !== "string") return;
 
-      const langWithoutPrefix = language.slice(prefix.length);
+      let langWithoutPrefix = language.slice(prefix.length);
+      if (langWithoutPrefix === "md") {
+        // This defaults to something other than markdown, but people generally
+        // mean markdown
+        langWithoutPrefix = "markdown";
+      }
       const scope = starryNight.flagToScope(langWithoutPrefix);
 
       if (!scope) {
