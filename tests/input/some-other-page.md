@@ -1,3 +1,7 @@
+---
+title: Some Other Page
+---
+
 # Some Other Page
 
 This is the "some other page" _page_!
