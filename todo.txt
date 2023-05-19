@@ -1,4 +1,3 @@
 - [ ] support getting page title from frontmatter
-- [ ] update documentation in README re: template stuff
 - [ ] manual switch for light/dark mode
 - [ ] release it!!!
