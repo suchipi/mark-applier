@@ -1,3 +1,8 @@
+---
+title: The 'Some Page' Page
+potatoes: 56
+---
+
 # Some Page
 
 This is the "some page" _page_!
@@ -15,6 +20,8 @@ This page has a lot of headers.
 ###### These
 
 ####### Headers... aww, no h7?
+
+Potatoes: \#FRONTMATTER("potatoes")
 
 ---
 

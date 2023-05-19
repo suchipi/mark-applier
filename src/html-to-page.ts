@@ -18,6 +18,7 @@ export function htmlToPage(
     origin?: string;
     additionalIncludePaths?: Array<string>;
     additionalRules?: Array<Rule>;
+    frontMatterData?: { [key: string]: any };
   }
 ): string {
   const rootTemplate = require.resolve("../templates/__rootTemplate.tmpl");
@@ -45,14 +46,34 @@ export function htmlToPage(
     return input.content.replace(/#ORIGIN/g, originReplacement);
   };
 
+  const frontMatterData = options.frontMatterData ?? {};
+
+  const frontMatterDataRule: Rule = (input, api) => {
+    return input.content.replace(
+      /#FRONTMATTER\(([^)]+)\)/g,
+      (match, keyName) => {
+        const parsedKeyName = JSON.parse(keyName);
+        if (Object.hasOwn(frontMatterData, parsedKeyName)) {
+          return frontMatterData[parsedKeyName];
+        } else {
+          return "";
+        }
+      }
+    );
+  };
+
   const result = process(rootTemplate, {
     includePaths: [
       ...(options.additionalIncludePaths || []),
       ...nodeModulesDirs,
     ],
-    rules: [includeRule, titleRule, contentRule, originRule].concat(
-      options.additionalRules || []
-    ),
+    rules: [
+      includeRule,
+      titleRule,
+      contentRule,
+      originRule,
+      frontMatterDataRule,
+    ].concat(options.additionalRules || []),
   });
 
   return result;

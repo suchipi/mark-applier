@@ -12,10 +12,6 @@ export type Options = {
   templateRules?: Array<Rule>;
 };
 
-function has(target: object, key: string | number | symbol) {
-  return Object.prototype.hasOwnProperty.call(target, key);
-}
-
 export async function applyMarks(
   input: string,
   options: Options
@@ -25,10 +21,13 @@ export async function applyMarks(
 
   // `options` takes precedence over frontmatter
   const { data, content } = getFrontMatter(input);
-  if (has(data, "title") && !has(mutableOptions, "title")) {
+  if (Object.hasOwn(data, "title") && !Object.hasOwn(mutableOptions, "title")) {
     mutableOptions.title = data.title;
   }
-  if (has(data, "origin") && !has(mutableOptions, "origin")) {
+  if (
+    Object.hasOwn(data, "origin") &&
+    !Object.hasOwn(mutableOptions, "origin")
+  ) {
     mutableOptions.origin = data.origin;
   }
 
@@ -52,6 +51,7 @@ export async function applyMarks(
   } else {
     const htmlToPageOptions: Parameters<typeof htmlToPage>[1] = {
       title: mutableOptions.title,
+      frontMatterData: data,
     };
     if (mutableOptions.templateOverridesDir) {
       htmlToPageOptions.additionalIncludePaths = [

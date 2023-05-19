@@ -1,3 +1,4 @@
-- [ ] document front matter stuff
+- [x] document front matter stuff
+- [ ] `--help`
 - [ ] manual switch for light/dark mode
 - [ ] release it!!!

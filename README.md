@@ -26,6 +26,7 @@ Generate a barebones GitHub-readme-themed website from markdown.
   - Task lists
   - ...and more
 - Supports both light and dark theme (based on [@media prefers-color-scheme](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme))
+- Good defaults; no explicit configuration needed (but you can customize it with config)
 
 ## Installation
 
@@ -41,6 +42,18 @@ Pipe markdown into `mark-applier`, and it will output html:
 $ cat README.md | mark-applier --title "My Awesome Page" > README.html
 ```
 
+You can alternatively use yaml frontmatter to specify the page title instead of `--title`:
+
+```markdown
+---
+title: My Awesome Page
+---
+
+# My Awesome Page
+
+...
+```
+
 ## Advanced Usage
 
 ### Raw HTML
@@ -49,6 +62,14 @@ Outputs the raw rendered markdown, without the enclosing page HTML:
 
 ```sh
 $ cat README.md | mark-applier --raw > README.html
+```
+
+### Page Origin
+
+mark-applier adds `target="_blank"` and some other attributes to `<a>` elements when they appear to be linking to an external page. To improve the accuracy of this "appear to be linking to an external page" heuristic, you can specify the origin (protocol and domain name) that the document will appear on. Specify it either in the yaml frontmatter's `origin` key or via the CLI option `--origin`:
+
+```sh
+$ cat README.md | mark-applier --origin https://example.com > README.html
 ```
 
 ### Template Overrides
@@ -61,8 +82,8 @@ You can override the builtin page and style template(s) by using `--template-ove
 | `mark-applier/templates/styles.tmpl`      | `<style>` or `<link>` tags that set up CSS.                           | `mark-applier/templates/index.tmpl`  |
 | `github-markdown-css/github-markdown.css` | CSS for styling generated markdown                                    | `mark-applier/templates/styles.tmpl` |
 | `@wooorm/starry-night/style/both.css`     | CSS for syntax highlighting in fenced code blocks                     | `mark-applier/templates/styles.tmpl` |
-| `mark-applier/styles/body-background.css` | CSS that sets the body background color                               |
-| `mark-applier/styles/page-layout.css`     | CSS that sets up page margin/padding/width                            |
+| `mark-applier/styles/body-background.css` | CSS that sets the body background color                               | `mark-applier/templates/styles.tmpl` |
+| `mark-applier/styles/page-layout.css`     | CSS that sets up page margin/padding/width                            | `mark-applier/templates/styles.tmpl` |
 
 For example, if you could created a folder named `template_overrides`, then created a file at path `template_overrides/mark-applier/templates/index.tmpl`, then ran mark-applier with `--template-overrides-dir template_overrides`, your created `index.tmpl` would be used instead of the one in `node_modules`.
 
@@ -76,6 +97,7 @@ When writing templates, the following macros are available:
 | `#CONTENT`                  | Gets replaced with the HTML of the compiled markdown. This is the same as what's returned when using `--raw`.                                                                                 |
 | `#ORIGIN`                   | Gets replaced with the document origin when `--origin` is present, or `/` otherwise.                                                                                                          |
 | `#INCLUDE("some-file.txt")` | Gets replaced with the contents of "some-file.txt". If you specify a non-relative path, mark-applier will attempt to find the file within your `--template-overrides-dir`, then node_modules. |
+| `#FRONTMATTER("some-key")`  | Gets replaced with the value `some-key` from the yaml frontmatter at the beginning of the markdown, if present. When that key cannot be found, gets replaced with the empty string.           |
 
 For a starting point when writing your own template overrides, look at `node_modules/mark-applier/templates/index.original.tmpl` and `node_modules/mark-applier/templates/styles.original.tmpl`.
 
