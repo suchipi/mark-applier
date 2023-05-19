@@ -7,7 +7,7 @@ export type Options = {
   raw?: boolean;
   title?: string;
   origin?: string;
-  templateDir?: string;
+  templateOverridesDir?: string;
   templateRules?: Array<Rule>;
 };
 
@@ -17,7 +17,11 @@ export async function applyMarks(
 ): Promise<string> {
   const html = await markdownToHtml(input, options);
   if (options.raw) {
-    for (const key of ["templateDir", "templateRules", "title"] as const) {
+    for (const key of [
+      "templateOverridesDir",
+      "templateRules",
+      "title",
+    ] as const) {
       if (options[key] != null) {
         warn(
           `When using the "raw" option, the ${JSON.stringify(
@@ -32,8 +36,8 @@ export async function applyMarks(
     const htmlToPageOptions: Parameters<typeof htmlToPage>[1] = {
       title: options.title,
     };
-    if (options.templateDir) {
-      htmlToPageOptions.additionalIncludePaths = [options.templateDir];
+    if (options.templateOverridesDir) {
+      htmlToPageOptions.additionalIncludePaths = [options.templateOverridesDir];
     }
     if (options.templateRules) {
       htmlToPageOptions.additionalRules = options.templateRules;

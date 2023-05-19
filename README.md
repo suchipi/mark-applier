@@ -53,7 +53,7 @@ $ cat README.md | mark-applier --raw > README.html
 
 ### Template Overrides
 
-You can override the builtin page and style template(s) by using `--templateDir`. When creating an HTML document, mark-applier looks for certain specific paths relative to `node_modules`. Specifying a `--templateDir` will cause mark-applier to first check your specified dir for a file before checking `node_modules`.
+You can override the builtin page and style template(s) by using `--template-overrides-dir`. When creating an HTML document, mark-applier looks for certain specific paths relative to `node_modules`. Specifying a `--template-overrides-dir` will cause mark-applier to first check your specified dir for a file before checking `node_modules`.
 
 | Path                                      | Purpose                                                               | Included by                          |
 | ----------------------------------------- | --------------------------------------------------------------------- | ------------------------------------ |
@@ -64,18 +64,18 @@ You can override the builtin page and style template(s) by using `--templateDir`
 | `mark-applier/styles/body-background.css` | CSS that sets the body background color                               |
 | `mark-applier/styles/page-layout.css`     | CSS that sets up page margin/padding/width                            |
 
-For example, if you could created a folder named `template_overrides`, then created a file at path `template_overrides/mark-applier/templates/index.tmpl`, then ran mark-applier with `--templateDir template_overrides`, your created `index.tmpl` would be used instead of the one in `node_modules`.
+For example, if you could created a folder named `template_overrides`, then created a file at path `template_overrides/mark-applier/templates/index.tmpl`, then ran mark-applier with `--template-overrides-dir template_overrides`, your created `index.tmpl` would be used instead of the one in `node_modules`.
 
 `node_modules` will still be used as a template search path, though; it will just check your template dir first. So if you reference stuff that isn't in your template dir, it'll check for it in node_modules.
 
 When writing templates, the following macros are available:
 
-| Macro                       | Explanation                                                                                                                                                                        |
-| --------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `#TITLE`                    | Gets replaced with a `<title>` element and newline when `--title` is present, or just a newline when it isn't present                                                              |
-| `#CONTENT`                  | Gets replaced with the HTML of the compiled markdown. This is the same as what's returned when using `--raw`.                                                                      |
-| `#ORIGIN`                   | Gets replaced with the document origin when `--origin` is present, or `/` otherwise.                                                                                               |
-| `#INCLUDE("some-file.txt")` | Gets replaced with the contents of "some-file.txt". If you specify a non-relative path, mark-applier will attempt to find the file within your `--templateDir`, then node_modules. |
+| Macro                       | Explanation                                                                                                                                                                                   |
+| --------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `#TITLE`                    | Gets replaced with a `<title>` element and newline when `--title` is present, or just a newline when it isn't present                                                                         |
+| `#CONTENT`                  | Gets replaced with the HTML of the compiled markdown. This is the same as what's returned when using `--raw`.                                                                                 |
+| `#ORIGIN`                   | Gets replaced with the document origin when `--origin` is present, or `/` otherwise.                                                                                                          |
+| `#INCLUDE("some-file.txt")` | Gets replaced with the contents of "some-file.txt". If you specify a non-relative path, mark-applier will attempt to find the file within your `--template-overrides-dir`, then node_modules. |
 
 For a starting point when writing your own template overrides, look at `node_modules/mark-applier/templates/index.original.tmpl` and `node_modules/mark-applier/templates/styles.original.tmpl`.
 
@@ -92,7 +92,7 @@ By default, all styles are included via `<style>` elements in the document head.
   ```
   #INCLUDE("mark-applier/templates/styles.link-rel.tmpl")
   ```
-- Run mark-applier with `--templateDir template_overrides`
+- Run mark-applier with `--template-overrides-dir template_overrides`
 - Deploy the `styles` folder such that it's available at the root of your website URL (ie. by placing it in the "public" or "dist" folder, alongside your HTML files).
 
 ## License

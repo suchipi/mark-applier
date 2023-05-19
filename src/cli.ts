@@ -8,7 +8,7 @@ clefairy.run(
     raw: clefairy.optionalBoolean,
     title: clefairy.optionalString,
     origin: clefairy.optionalString,
-    templateDir: clefairy.optionalPath,
+    templateOverridesDir: clefairy.optionalPath,
   },
   async (options) => {
     if (process.stdin.isTTY) {
