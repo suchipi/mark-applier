@@ -8,10 +8,10 @@
   "bin": "dist/cli.js",
   "scripts": {
     "build": "rm -rf dist && tsc && chmod +x dist/cli.js",
-    "test": "npm run compile-tests && concurrently 'npm run host-tests' 'npm run open-test-results'",
-    "compile-tests": "tests/generate-all.js",
-    "host-tests": "http-server -p 8080 tests/output",
-    "open-test-results": "open-cli http://localhost:8080"
+    "manual-tests": "npm run compile-manual-tests && concurrently 'npm run host-manual-tests' 'npm run open-manual-test-results'",
+    "compile-manual-tests": "tests/generate-all.js",
+    "host-manual-tests": "http-server -p 8080 tests/output",
+    "open-manual-test-results": "open-cli http://localhost:8080"
   },
   "keywords": [
     "website",
@@ -41,8 +41,10 @@
   "devDependencies": {
     "@types/node": "^18.16.2",
     "concurrently": "^8.0.1",
+    "first-base": "^0.2.0",
     "glomp": "^3.1.1",
     "http-server": "^14.1.1",
+    "jest": "^29.5.0",
     "open-cli": "^7.2.0",
     "path-less-traveled": "^2.0.0",
     "typescript": "^5.0.4"
