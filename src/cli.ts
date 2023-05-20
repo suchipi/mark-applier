@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 import fs from "node:fs";
 import * as clefairy from "clefairy";
-import { applyMarks } from "./index.js";
-import { parseArgv, Flags, Context } from "./parse-argv.js";
+import * as markApplier from "./index.js";
+import { parseArgv, Flags } from "./parse-argv.js";
 
 clefairy.run(
   {
@@ -18,14 +18,42 @@ clefairy.run(
   async (options: Flags) => {
     const context = parseArgv(options);
 
-    // TODO left off here; bedtime
-
-    if (process.stdin.isTTY) {
-      throw new Error("Please pipe markdown into this process as its stdin.");
+    if (context.target === "css") {
+      const output = markApplier.makeCss();
+      if (context.outputPath) {
+        await fs.promises.writeFile(context.outputPath, output, "utf-8");
+      } else {
+        process.stdout.write(output, "utf-8");
+      }
+      return;
     }
 
-    const input = fs.readFileSync(process.stdin.fd, "utf-8");
-    const output = await applyMarks(input, options);
-    process.stdout.write(output);
+    let markdown: string;
+    if (context.inputPath != null) {
+      markdown = await fs.promises.readFile(context.inputPath, "utf-8");
+    } else if (!process.stdin.isTTY) {
+      markdown = fs.readFileSync(process.stdin.fd, "utf-8");
+    } else {
+      throw new Error(
+        "Please either specify an input file (with --input) or pipe markdown into this process as its stdin."
+      );
+    }
+
+    let output: string;
+    if (context.target === "raw") {
+      output = await markApplier.makeRawHtml(markdown, context);
+    } else if (context.target === "page") {
+      output = await markApplier.makePageHtml(markdown, context);
+    } else {
+      throw new Error(
+        "Internal error: unknown CLI target: " + (context as any).target
+      );
+    }
+
+    if (context.outputPath != null) {
+      await fs.promises.writeFile(context.outputPath, output, "utf-8");
+    } else {
+      process.stdout.write(output, "utf-8");
+    }
   }
 );

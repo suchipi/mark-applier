@@ -2,27 +2,33 @@ import { renderPage } from "./render-page.js";
 import { renderCss } from "./render-css.js";
 import { markdownToHtml } from "./markdown-to-html.js";
 import { getFrontMatter } from "./get-front-matter.js";
-import { Context } from "./parse-argv.js";
 
-export async function applyMarks(
+export function makeCss() {
+  return renderCss();
+}
+
+export async function makeRawHtml(
   input: string,
-  context: Context
-): Promise<string> {
-  if (context.target === "css") {
-    return renderCss();
-  }
-
+  options: { origin?: string | null }
+) {
   const { data, content } = getFrontMatter(input);
 
   // `options` takes precedence over frontmatter
-  const origin = context.origin ?? data.origin;
+  const origin = options.origin ?? data.origin;
 
-  if (context.target === "raw") {
-    const rawHtml = await markdownToHtml(content, { origin });
-    return rawHtml;
-  }
+  const rawHtml = await markdownToHtml(content, { origin });
+  return rawHtml;
+}
 
-  const title = context.title ?? data.title;
+export async function makePageHtml(
+  input: string,
+  options: { origin?: string | null; title?: string | null }
+): Promise<string> {
+  const { data, content } = getFrontMatter(input);
+
+  // `options` takes precedence over frontmatter
+  const origin = options.origin ?? data.origin;
+  const title = options.title ?? data.title;
 
   const rawHtml = await markdownToHtml(content, { origin });
   const pageHtml = renderPage(rawHtml, { origin, title });
