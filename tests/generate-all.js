@@ -16,7 +16,7 @@ async function main() {
   const inputDir = pathMarker(rel("./input", import.meta.url));
   const outputDir = pathMarker(rel("./output", import.meta.url));
 
-  await fs.promises.rmdir(outputDir(), { recursive: true, force: true });
+  await fs.promises.rm(outputDir(), { recursive: true, force: true });
 
   const files = await glomp.findMatches(inputDir());
   for (const file of files) {

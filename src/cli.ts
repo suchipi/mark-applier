@@ -6,9 +6,9 @@ import { applyMarks } from "./index.js";
 clefairy.run(
   {
     raw: clefairy.optionalBoolean,
+    css: clefairy.optionalBoolean,
     title: clefairy.optionalString,
     origin: clefairy.optionalString,
-    templateOverridesDir: clefairy.optionalPath,
   },
   async (options) => {
     if (process.stdin.isTTY) {

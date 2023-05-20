@@ -11,18 +11,14 @@ function nodeModulesDirForPackage(packageName: string) {
   return pkgJsonPath.replace(new RegExp(specifier + "$"), "");
 }
 
-export function htmlToPage(
-  content: string,
+export function renderTemplate(
+  templatePath: string,
   options: {
     title?: string;
     origin?: string;
-    additionalIncludePaths?: Array<string>;
-    additionalRules?: Array<Rule>;
-    frontMatterData?: { [key: string]: any };
+    content?: string;
   }
 ): string {
-  const rootTemplate = require.resolve("../templates/__rootTemplate.tmpl");
-
   const nodeModulesDirs = new Set();
   nodeModulesDirs.add(nodeModulesDirForPackage("github-markdown-css"));
   nodeModulesDirs.add(nodeModulesDirForPackage("@wooorm/starry-night"));
@@ -37,8 +33,9 @@ export function htmlToPage(
     return input.content.replace(/#TITLE/g, titleReplacement);
   };
 
+  const contentReplacement = options.content ?? "\n";
   const contentRule: Rule = (input, api) => {
-    return input.content.replace(/#CONTENT/g, content);
+    return input.content.replace(/#CONTENT/g, contentReplacement);
   };
 
   const originReplacement = options.origin ?? "/";
@@ -46,34 +43,9 @@ export function htmlToPage(
     return input.content.replace(/#ORIGIN/g, originReplacement);
   };
 
-  const frontMatterData = options.frontMatterData ?? {};
-
-  const frontMatterDataRule: Rule = (input, api) => {
-    return input.content.replace(
-      /#FRONTMATTER\(([^)]+)\)/g,
-      (match, keyName) => {
-        const parsedKeyName = JSON.parse(keyName);
-        if (Object.hasOwn(frontMatterData, parsedKeyName)) {
-          return frontMatterData[parsedKeyName];
-        } else {
-          return "";
-        }
-      }
-    );
-  };
-
-  const result = process(rootTemplate, {
-    includePaths: [
-      ...(options.additionalIncludePaths || []),
-      ...nodeModulesDirs,
-    ],
-    rules: [
-      includeRule,
-      titleRule,
-      contentRule,
-      originRule,
-      frontMatterDataRule,
-    ].concat(options.additionalRules || []),
+  const result = process(templatePath, {
+    includePaths: nodeModulesDirs,
+    rules: [includeRule, titleRule, contentRule, originRule],
   });
 
   return result;
