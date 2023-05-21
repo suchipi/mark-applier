@@ -11,7 +11,8 @@
     "manual-tests": "npm run compile-manual-tests && concurrently 'npm run host-manual-tests' 'npm run open-manual-test-results'",
     "compile-manual-tests": "tests/generate-all.js",
     "host-manual-tests": "http-server -p 8080 tests/output",
-    "open-manual-test-results": "open-cli http://localhost:8080"
+    "open-manual-test-results": "open-cli http://localhost:8080",
+    "test": "jest"
   },
   "keywords": [
     "website",

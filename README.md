@@ -26,20 +26,18 @@ Generate a barebones GitHub-readme-themed website from markdown.
   - ...and more
 - Supports both light and dark theme (based on [@media prefers-color-scheme](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme))
 - Super simple usage
-- Generated pages don't use JavaScript
+- Generated pages work even when JavaScript is disabled
 
 ## Installation
 
-```sh
-$ npm install -g mark-applier
-```
+- Install [Node.js](https://nodejs.org/) to get the `npx` program.
 
 ## Usage
 
-Pipe markdown into `mark-applier`, and it will output html:
+To generate `README.html` from the contents of `README.md`:
 
 ```sh
-$ cat README.md | mark-applier --title "My Awesome Page" > README.html
+$ npx mark-applier --input README.md --title "My Awesome Page" --output README.html
 ```
 
 You can alternatively use yaml frontmatter to specify the page title instead of `--title`:
@@ -61,7 +59,7 @@ title: My Awesome Page
 Outputs the raw rendered markdown, without the enclosing page HTML:
 
 ```sh
-$ cat README.md | mark-applier --raw > README.html
+$ npx mark-applier --input README.md --raw --output README.html
 ```
 
 By using `--css` to get the css and `--raw` to get the raw html, you can use your own page template instead of the one provided by mark-applier.
@@ -79,7 +77,7 @@ If you're going to use this with the CSS provided by mark-applier, you should pu
 Outputs the CSS from the page, without any of the HTML.
 
 ```sh
-$ mark-applier --css > styles.css
+$ npx mark-applier --css > styles.css
 ```
 
 By using `--css` to get the css and `--raw` to get the raw html, you can use your own page template instead of the one provided by mark-applier.
@@ -89,7 +87,7 @@ By using `--css` to get the css and `--raw` to get the raw html, you can use you
 mark-applier adds `target="_blank"` and some other attributes to `<a>` elements when they appear to be linking to an external page. To improve the accuracy of this "appear to be linking to an external page" heuristic, you can specify the origin (protocol and domain name) that the document will appear on. Specify it either in the yaml frontmatter's `origin` key or via the CLI option `--origin`:
 
 ```sh
-$ cat README.md | mark-applier --origin https://example.com > README.html
+$ npx mark-applier --input README.md --origin https://example.com --output README.html
 ```
 
 ## License
