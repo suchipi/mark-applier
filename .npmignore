@@ -1,0 +1,8 @@
+fixtures
+manual-tests
+src
+tests
+.github
+.prettierignore
+todo.txt
+tsconfig.json

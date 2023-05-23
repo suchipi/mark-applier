@@ -4,7 +4,7 @@
   "description": "Markdown-to-Website Generator, GitHub README style",
   "type": "module",
   "main": "dist/index.js",
-  "types": "src/index.ts",
+  "types": "dist/index.d.ts",
   "bin": "dist/cli.js",
   "scripts": {
     "build": "rm -rf dist && tsc && chmod +x dist/cli.js",
@@ -20,9 +20,14 @@
     "markdown",
     "generator",
     "static",
-    "site"
+    "site",
+    "github",
+    "html",
+    "css",
+    "md"
   ],
   "author": "Lily Skye <me@suchipi.com>",
+  "repository": "suchipi/mark-applier",
   "license": "MIT",
   "dependencies": {
     "@suchipi/macaroni": "^0.2.0",
