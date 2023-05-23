@@ -1,1 +1,2 @@
 - [ ] manual switch for light/dark mode
+- [ ] implement links to headings via element ids and document hash
