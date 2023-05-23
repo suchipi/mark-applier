@@ -13,8 +13,8 @@ function ensureDir(dirPath) {
 
 async function main() {
   const rootDir = pathMarker(rel("..", import.meta.url));
-  const inputDir = pathMarker(rel("./input", import.meta.url));
-  const outputDir = pathMarker(rel("./output", import.meta.url));
+  const inputDir = pathMarker(rel("../fixtures", import.meta.url));
+  const outputDir = pathMarker(rel("./rendered", import.meta.url));
 
   await fs.promises.rm(outputDir(), { recursive: true, force: true });
 
@@ -29,7 +29,7 @@ async function main() {
         `compiling ${rootDir.relative(file)} to ${rootDir.relative(targetPath)}`
       );
       const content = await fs.promises.readFile(file, "utf-8");
-      const html = await markApplier.applyMarks(content, {
+      const html = await markApplier.makePageHtml(content, {
         origin: "http://localhost",
       });
       await fs.promises.writeFile(targetPath, html);

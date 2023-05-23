@@ -8,10 +8,10 @@
   "bin": "dist/cli.js",
   "scripts": {
     "build": "rm -rf dist && tsc && chmod +x dist/cli.js",
-    "manual-tests": "npm run compile-manual-tests && concurrently 'npm run host-manual-tests' 'npm run open-manual-test-results'",
-    "compile-manual-tests": "tests/generate-all.js",
-    "host-manual-tests": "http-server -p 8080 tests/output",
-    "open-manual-test-results": "open-cli http://localhost:8080",
+    "manual-tests": "npm run build && npm run manual-tests:build && concurrently 'npm run manual-tests:host' 'npm run manual-tests:open'",
+    "manual-tests:build": "manual-tests/generate-all.js",
+    "manual-tests:host": "http-server -p 8080 manual-tests/rendered",
+    "manual-tests:open": "open-cli http://localhost:8080",
     "test": "jest"
   },
   "keywords": [
