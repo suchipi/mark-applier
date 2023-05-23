@@ -12,7 +12,7 @@
     "manual-tests:build": "manual-tests/generate-all.js",
     "manual-tests:host": "http-server -p 8080 manual-tests/rendered",
     "manual-tests:open": "open-cli http://localhost:8080",
-    "test": "jest"
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
   },
   "keywords": [
     "website",
@@ -49,5 +49,8 @@
     "open-cli": "^7.2.0",
     "path-less-traveled": "^2.0.0",
     "typescript": "^5.0.4"
+  },
+  "jest": {
+    "transform": {}
   }
 }
