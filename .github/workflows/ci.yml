@@ -1,0 +1,17 @@
+name: CI build and test
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Build and test
+        run: ./in-docker.sh 'yarn install && yarn build && yarn test'

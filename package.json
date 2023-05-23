@@ -12,7 +12,8 @@
     "manual-tests:build": "manual-tests/generate-all.js",
     "manual-tests:host": "http-server -p 8080 manual-tests/rendered",
     "manual-tests:open": "open-cli http://localhost:8080",
-    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "ci": "npm install && npm run build && env CI=true npm run test"
   },
   "keywords": [
     "website",

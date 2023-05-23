@@ -4,8 +4,8 @@ exports[`--raw 1`] = `
 {
   "code": 0,
   "error": false,
-  "stderr": "[33mWARNING: I'd like to make links to external websites open in a new tab, but I can't do that unless you tell me where your website will be hosted. If you want that, specify your origin like this: '--origin https://example.com'.[39m
-[33mWARNING: Skipping syntax highlighting for unknown language: no-highlight[39m
+  "stderr": "WARNING: I'd like to make links to external websites open in a new tab, but I can't do that unless you tell me where your website will be hosted. If you want that, specify your origin like this: '--origin https://example.com'.
+WARNING: Skipping syntax highlighting for unknown language: no-highlight
 ",
   "stdout": "<!DOCTYPE html>
 <html lang="en">

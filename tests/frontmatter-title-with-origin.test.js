@@ -1,4 +1,4 @@
-import { rootDir, runCli } from "./test-utils";
+import { rootDir, runCli, cleanResult } from "./test-utils";
 
 test("title (frontmatter, with origin)", async () => {
   const run = runCli([
@@ -8,5 +8,5 @@ test("title (frontmatter, with origin)", async () => {
     "https://example.com",
   ]);
   await run.completion;
-  expect(run.result).toMatchSnapshot();
+  expect(cleanResult(run.result)).toMatchSnapshot();
 });
