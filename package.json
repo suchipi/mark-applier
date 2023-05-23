@@ -14,7 +14,7 @@
     "manual-tests:open": "open-cli http://localhost:8080",
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
     "ci": "npm install && npm run build && env CI=true npm run test && npm run manual-tests:build",
-    "gh-pages:build": "mkdir _site && npm install && npm run build && dist/cli.js --origin http://localhost -i README.md -o _site/index.html"
+    "gh-pages:build": "mkdir -p _site && npm install && npm run build && dist/cli.js --origin http://localhost -i README.md -o _site/index.html"
   },
   "keywords": [
     "website",

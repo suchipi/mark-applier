@@ -4,6 +4,10 @@
 
 Generate a barebones GitHub-readme-themed website from markdown.
 
+## Demo
+
+https://suchipi.github.io/mark-applier/ has been generated from this README.
+
 ## Features
 
 - Author websites the same way you write READMEs
