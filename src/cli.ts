@@ -3,6 +3,7 @@ import fs from "node:fs";
 import * as clefairy from "clefairy";
 import * as markApplier from "./index.js";
 import { parseArgv, Flags } from "./parse-argv.js";
+import helptext from "./helptext.js";
 
 clefairy.run(
   {
@@ -14,9 +15,16 @@ clefairy.run(
     input: clefairy.optionalPath,
     o: clefairy.optionalPath,
     output: clefairy.optionalPath,
+    h: clefairy.optionalBoolean,
+    help: clefairy.optionalBoolean,
   },
   async (options: Flags) => {
     const context = parseArgv(options);
+
+    if (context.target === "help") {
+      console.log(helptext);
+      return;
+    }
 
     if (context.target === "css") {
       const output = markApplier.makeCss();

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`--raw 1`] = `
+exports[`page 1`] = `
 {
   "code": 0,
   "error": false,

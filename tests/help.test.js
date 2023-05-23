@@ -1,7 +1,7 @@
 import { rootDir, runCli, cleanResult } from "./test-utils";
 
-test("page", async () => {
-  const run = runCli(["--input", rootDir("fixtures/fixture.md")]);
+test("--help", async () => {
+  const run = runCli(["--help"]);
   await run.completion;
   expect(cleanResult(run.result)).toMatchSnapshot();
 });

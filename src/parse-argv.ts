@@ -9,9 +9,14 @@ export type Flags = {
   o?: string;
   input?: string;
   output?: string;
+  h?: boolean;
+  help?: boolean;
 };
 
 export type Context =
+  | {
+      target: "help";
+    }
   | {
       target: "css";
       // null means write to stdout
@@ -36,6 +41,10 @@ export type Context =
     };
 
 export function parseArgv(flags: Flags): Context {
+  if (flags.h || flags.help) {
+    return { target: "help" };
+  }
+
   const inputPath = flags.input ?? flags.i ?? null;
   const outputPath = flags.output ?? flags.o ?? null;
   const title = flags.title ?? null;

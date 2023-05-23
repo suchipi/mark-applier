@@ -1,4 +1,2 @@
-- [ ] `--help`
-- [-] automated tests
 - [ ] manual switch for light/dark mode
 - [ ] release it!!!
