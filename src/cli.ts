@@ -4,6 +4,7 @@ import * as clefairy from "clefairy";
 import * as markApplier from "./index.js";
 import { parseArgv, Flags } from "./parse-argv.js";
 import helptext from "./helptext.js";
+import getStdin from "get-stdin";
 
 clefairy.run(
   {
@@ -40,7 +41,7 @@ clefairy.run(
     if (context.inputPath != null) {
       markdown = await fs.promises.readFile(context.inputPath, "utf-8");
     } else if (!process.stdin.isTTY) {
-      markdown = fs.readFileSync(process.stdin.fd, "utf-8");
+      markdown = await getStdin();
     } else {
       throw new Error(
         "Please either specify an input file (with --input) or pipe markdown into this process as its stdin."
