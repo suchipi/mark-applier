@@ -1,0 +1,29 @@
+/* headers with ids get links, so any header with a non-empty id will have a link in it */
+h1[id]:not([id=""]),
+h2[id]:not([id=""]),
+h3[id]:not([id=""]),
+h4[id]:not([id=""]),
+h5[id]:not([id=""]),
+h6[id]:not([id=""]) {
+  display: flex;
+  flex-direction: row;
+}
+
+a.link-icon {
+  /* unset default link styles */
+  color: inherit;
+  text-decoration: none;
+
+  display: inline-flex;
+  align-items: center;
+}
+
+a.link-icon > svg {
+  margin-left: -20px;
+  opacity: 0.0;
+}
+
+a.link-icon:hover > svg,
+a.link-icon:focus > svg {
+  opacity: 1.0;
+}

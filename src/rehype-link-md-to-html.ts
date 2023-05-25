@@ -22,6 +22,10 @@ export const rehypeLinkMdToHtml: Plugin<
         return;
       }
 
+      if (href.startsWith("#")) {
+        return;
+      }
+
       let isInternal: boolean;
       if (options.origin != null) {
         const pageUrl = new URL(options.origin);
