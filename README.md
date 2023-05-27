@@ -28,7 +28,7 @@ https://suchipi.github.io/mark-applier/ has been generated from this README.
   - Line breaks
   - Task lists
   - ...and more
-- Supports both light and dark theme (based on [@media prefers-color-scheme](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme))
+- Supports both light and dark theme (based on [@media prefers-color-scheme](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme), though you can override that if you prefer)
 - Super simple usage
 - Generated pages work even when JavaScript is disabled
 
@@ -75,6 +75,8 @@ If you're going to use this with the CSS provided by mark-applier, you should pu
   <!-- raw html goes here -->
 </article>
 ```
+
+You can also add the class name "light-theme" or the class name "dark-theme" to override the default theme (which is whatever the user's OS uses). You can put this class on the `.markdown-body` element or any of its parent elements.
 
 ### Just the CSS
 

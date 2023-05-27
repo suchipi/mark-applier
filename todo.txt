@@ -1,2 +1,2 @@
-- [ ] manual switch for light/dark mode
+- [-] manual switch for light/dark mode
 - [ ] embed license attributions into an html (or css) comment in the final page
