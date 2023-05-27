@@ -6,7 +6,8 @@ h4[id]:not([id=""]),
 h5[id]:not([id=""]),
 h6[id]:not([id=""]) {
   display: flex;
-  flex-direction: row;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
 }
 
 a.link-icon {

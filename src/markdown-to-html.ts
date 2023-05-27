@@ -20,7 +20,7 @@ export async function markdownToHtml(
     .use(remarkRehype, { allowDangerousHtml: true })
     .use(rehypeSlug)
     .use(rehypeAutolinkHeadings, {
-      behavior: "prepend",
+      behavior: "append",
       content: linkIconTree,
       properties: {
         className: "link-icon",
