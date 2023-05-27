@@ -8,7 +8,7 @@
 
 #### Right-aligned image
 
-<img src="/sample-image.png" width="182" align="right">
+<img src="/mr-fishbach.png" width="182" align="right">
 
 ### Code snippet
 

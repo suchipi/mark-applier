@@ -17,10 +17,10 @@ This page has a **_table_**, and a **_link_**!
 
 ---
 
-This page was compiled with theme "auto". Check out the other variants of this page:
+This page was compiled with theme "light". Check out the other variants of this page:
 
 - [dark](./some-other-page.dark.md)
-- [light](./some-other-page.light.md)
+- [auto](./some-other-page.md)
 
 ---
 

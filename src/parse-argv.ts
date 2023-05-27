@@ -1,4 +1,5 @@
 import { warn } from "./warn.js";
+import { ThemeName, invalidThemeError, isThemeName } from "./theme.js";
 
 export type Flags = {
   raw?: boolean;
@@ -11,6 +12,7 @@ export type Flags = {
   output?: string;
   h?: boolean;
   help?: boolean;
+  theme?: string;
 };
 
 export type Context =
@@ -21,6 +23,7 @@ export type Context =
       target: "css";
       // null means write to stdout
       outputPath: string | null;
+      theme: ThemeName;
     }
   | {
       target: "page";
@@ -30,6 +33,7 @@ export type Context =
       outputPath: string | null;
       title: string | null;
       origin: string | null;
+      theme: ThemeName;
     }
   | {
       target: "raw";
@@ -49,6 +53,10 @@ export function parseArgv(flags: Flags): Context {
   const outputPath = flags.output ?? flags.o ?? null;
   const title = flags.title ?? null;
   const origin = flags.origin ?? null;
+  const theme = flags.theme ?? "auto";
+  if (!isThemeName(theme)) {
+    throw invalidThemeError(theme);
+  }
 
   if (flags.css) {
     if (title) {
@@ -61,6 +69,7 @@ export function parseArgv(flags: Flags): Context {
     return {
       target: "css",
       outputPath,
+      theme,
     };
   } else if (flags.raw) {
     if (title) {
@@ -85,6 +94,7 @@ export function parseArgv(flags: Flags): Context {
       outputPath,
       title,
       origin,
+      theme,
     };
   }
 }

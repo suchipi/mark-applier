@@ -29,9 +29,15 @@ async function main() {
         `compiling ${rootDir.relative(file)} to ${rootDir.relative(targetPath)}`
       );
       const content = await fs.promises.readFile(file, "utf-8");
-      const html = await markApplier.makePageHtml(content, {
-        origin: "http://localhost",
-      });
+      const opts = {
+        origin: "http://localhost:8080",
+        theme: file.endsWith(".dark.md")
+          ? "dark"
+          : file.endsWith(".light.md")
+          ? "light"
+          : undefined,
+      };
+      const html = await markApplier.makePageHtml(content, opts);
       await fs.promises.writeFile(targetPath, html);
     } else {
       console.log(

@@ -15,6 +15,7 @@ options:
 
   --title: Set page title. Alternatively, use yml frontmatter 'title' key
   --origin: Set page origin (scheme and domain, eg 'https://example.com'). Alternatively, use yml frontmatter 'origin' key
+  --theme: CSS theme; 'light', 'dark', or 'auto'. Defaults to 'auto'.
 
   --raw: Output raw HTML document fragment instead of entire document
   --css: Output CSS stylesheet instead of HTML (input is ignored)

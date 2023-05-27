@@ -1121,6 +1121,7 @@ exports[`title (frontmatter) 1`] = `
   filter: invert(50%);
 }
 
+
 /* npm:@wooorm/starry-night/style/both.css */
 /* This is a theme distributed by \`starry-night\`.
  * It’s based on what GitHub uses on their site.
@@ -1413,7 +1414,7 @@ exports[`title (frontmatter) 1`] = `
 }
 
 
-/* npm:mark-applier/styles/body-background.css */
+/* npm:mark-applier/styles/body-background-auto.css */
 body {
   --color-body-bg: #ffffff;
   background-color: var(--color-body-bg);
@@ -1442,6 +1443,7 @@ body {
   color-scheme: light;
   --color-body-bg: #ffffff;
 }
+
 
 /* npm:mark-applier/styles/page-layout.css */
 body {

@@ -17,7 +17,10 @@ export function renderTemplate(
     title?: string;
     origin?: string;
     content?: string;
-  }
+  },
+  placeholders: {
+    [key: string]: string;
+  } = Object.create(null)
 ): string {
   const nodeModulesDirs = new Set();
   nodeModulesDirs.add(nodeModulesDirForPackage("github-markdown-css"));
@@ -43,9 +46,23 @@ export function renderTemplate(
     return input.content.replace(/#ORIGIN/g, originReplacement);
   };
 
+  const placeholderRule: Rule = (input, api) => {
+    return input.content.replace(
+      /#PLACEHOLDER\(([^)]+)\)/g,
+      (match, keyNameWithQuotes) => {
+        const keyName = JSON.parse(keyNameWithQuotes);
+        if (Object.hasOwn(placeholders, keyName)) {
+          return placeholders[keyName];
+        } else {
+          throw new Error("Unspecified placeholder key: " + keyName);
+        }
+      }
+    );
+  };
+
   const result = process(templatePath, {
     includePaths: nodeModulesDirs,
-    rules: [includeRule, titleRule, contentRule, originRule],
+    rules: [includeRule, titleRule, contentRule, originRule, placeholderRule],
   });
 
   return result;

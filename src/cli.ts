@@ -18,6 +18,7 @@ clefairy.run(
     output: clefairy.optionalPath,
     h: clefairy.optionalBoolean,
     help: clefairy.optionalBoolean,
+    theme: clefairy.optionalString,
   },
   async (options: Flags) => {
     const context = parseArgv(options);
@@ -28,7 +29,7 @@ clefairy.run(
     }
 
     if (context.target === "css") {
-      const output = markApplier.makeCss();
+      const output = markApplier.makeCss(context.theme);
       if (context.outputPath) {
         await fs.promises.writeFile(context.outputPath, output, "utf-8");
       } else {
