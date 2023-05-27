@@ -18,15 +18,21 @@ export function renderPage(
 
   const css = renderCss(theme);
 
-  const templatePath = rel("../templates/page.html.tmpl", import.meta.url);
+  let checkboxHtml = "";
+  if (theme === "auto") {
+    checkboxHtml = renderTemplate(
+      rel("../templates/theme-toggle.html.tmpl", import.meta.url),
+      {}
+    );
+  }
 
   return renderTemplate(
-    templatePath,
+    rel("../templates/page.html.tmpl", import.meta.url),
     {
       content,
       title: options.title,
       origin: options.origin,
     },
-    { css }
+    { css, checkboxHtml }
   );
 }

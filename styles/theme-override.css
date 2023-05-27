@@ -1,6 +1,7 @@
 /* the colors here match those found in node_modules/github-markdown-css/github-markdown.css */
 /* note that github-markdown.css itself contains color overrides that are compatible with starry-night, and so does this file. */
 
+.dark-theme,
 .dark-theme .markdown-body,
 .dark-theme.markdown-body {
   color-scheme: dark;
@@ -48,6 +49,7 @@
   --color-danger-fg: #f85149;
 }
 
+.light-theme,
 .light-theme .markdown-body,
 .light-theme.markdown-body {
   color-scheme: light;

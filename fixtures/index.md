@@ -10,7 +10,7 @@ Here is a link to [some page](./some-page), and here is _another_ link, this tim
 
 Or maybe you want to go to [the fixture](./fixture)?
 
-You could also look at the [headings test page] if you'd like.
+You could also look at the [headings test page] if you'd like. Or maybe the [page with a ton of text on it](./just-a-ton-of-text.md).
 
 ---
 

@@ -1,4 +1,7 @@
 body {
+  color-scheme: dark;
+  --color-body-fg: #24292f;
   --color-body-bg: #ffffff;
   background-color: var(--color-body-bg);
+  color: var(--color-body-fg);
 }

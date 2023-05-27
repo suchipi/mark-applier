@@ -1,11 +1,15 @@
 body {
+  color-scheme: light;
+  --color-body-fg: #24292f;
   --color-body-bg: #ffffff;
   background-color: var(--color-body-bg);
+  color: var(--color-body-fg);
 }
 
 @media (prefers-color-scheme: dark) {
   body {
     color-scheme: dark;
+    --color-body-fg: #c9d1d9;
     --color-body-bg: #0d1117;
   }
 }
@@ -13,16 +17,19 @@ body {
 @media (prefers-color-scheme: light) {
   body {
     color-scheme: light;
+    --color-body-fg: #24292f;
     --color-body-bg: #ffffff;
   }
 }
 
 .dark-theme {
   color-scheme: dark;
+  --color-body-fg: #c9d1d9;
   --color-body-bg: #0d1117;
 }
 
 .light-theme {
   color-scheme: light;
+  --color-body-fg: #24292f;
   --color-body-bg: #ffffff;
 }
