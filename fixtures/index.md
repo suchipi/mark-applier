@@ -10,6 +10,8 @@ Here is a link to [some page](./some-page), and here is _another_ link, this tim
 
 Or maybe you want to go to [the fixture](./fixture)?
 
+You could also look at the [headings test page] if you'd like.
+
 ---
 
 That first link had no filename extension, and that second link had a `.md` extension, and that third link had a `.html` extension. Those all work and resolve properly.
@@ -25,3 +27,5 @@ console.log("this is some js");
 ---
 
 You reached the bottom of the page! Congrats. Maybe you want to go to <https://google.com> next?
+
+[headings test page]: ./headings
