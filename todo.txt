@@ -1,3 +1,2 @@
-- [x] manual switch for light/dark mode
-- [ ] embed license attributions into an html (or css) comment in the final page
+- [x] embed license attributions into an html (or css) comment in the final page
 - [ ] switch template engine to handlebars or moustache; something normal

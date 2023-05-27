@@ -7,7 +7,22 @@ exports[`--css --theme dark 1`] = `
   "stderr": "",
   "stdout": "/* NOTE: mark-applier styles have to come after github-markdown-css styles. */
 
-/* npm:github-markdown-css/github-markdown-dark.css */
+/*
+
+This next section of code is taken from npm:github-markdown-css/github-markdown-dark.css,
+which has the following license:
+
+MIT License
+
+Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (https://sindresorhus.com)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+*/
 .markdown-body {
   color-scheme: dark;
   -ms-text-size-adjust: 100%;
@@ -1016,8 +1031,37 @@ exports[`--css --theme dark 1`] = `
   filter: invert(50%);
 }
 
+/* End of code from npm:github-markdown-css/github-markdown-dark.css */
 
-/* npm:@wooorm/starry-night/style/dark.css */
+/*
+
+This next section of code is taken from npm:@wooorm/starry-night/style/dark.css,
+which has the following license:
+
+(The MIT License)
+
+Copyright (c) 2022 Titus Wormer <tituswormer@gmail.com>
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+'Software'), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+*/
 /* This is a theme distributed by \`starry-night\`.
  * It’s based on what GitHub uses on their site.
  * See <https://github.com/wooorm/starry-night> for more info. */
@@ -1174,11 +1218,42 @@ exports[`--css --theme dark 1`] = `
   color: var(--color-prettylights-syntax-constant-other-reference-link);
 }
 
+/* End of code from npm:@wooorm/starry-night/style/dark.css */
+
+/*
+This next section of code is taken from npm:mark-applier/styles,
+which has the following license:
+
+MIT License Copyright (c) 2023 Lily Skye
+
+Permission is hereby granted, free of
+charge, to any person obtaining a copy of this software and associated
+documentation files (the "Software"), to deal in the Software without
+restriction, including without limitation the rights to use, copy, modify, merge,
+publish, distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to the
+following conditions:
+
+The above copyright notice and this permission notice
+(including the next paragraph) shall be included in all copies or substantial
+portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF
+ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO
+EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR
+OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+*/
 
 /* npm:mark-applier/styles/body-background-dark.css */
 body {
+  color-scheme: dark;
+  --color-body-fg: #c9d1d9;
   --color-body-bg: #0d1117;
   background-color: var(--color-body-bg);
+  color: var(--color-body-fg);
 }
 
 
@@ -1236,6 +1311,8 @@ a.link-icon:focus > svg {
   opacity: 1.0;
 }
 
+
+/* End of code from npm:mark-applier/styles */
 ",
 }
 `;
@@ -1247,7 +1324,22 @@ exports[`--css --theme light 1`] = `
   "stderr": "",
   "stdout": "/* NOTE: mark-applier styles have to come after github-markdown-css styles. */
 
-/* npm:github-markdown-css/github-markdown-light.css */
+/*
+
+This next section of code is taken from npm:github-markdown-css/github-markdown-light.css,
+which has the following license:
+
+MIT License
+
+Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (https://sindresorhus.com)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+*/
 .markdown-body {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -2255,8 +2347,37 @@ exports[`--css --theme light 1`] = `
   filter: invert(50%);
 }
 
+/* End of code from npm:github-markdown-css/github-markdown-light.css */
 
-/* npm:@wooorm/starry-night/style/light.css */
+/*
+
+This next section of code is taken from npm:@wooorm/starry-night/style/light.css,
+which has the following license:
+
+(The MIT License)
+
+Copyright (c) 2022 Titus Wormer <tituswormer@gmail.com>
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+'Software'), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+*/
 /* This is a theme distributed by \`starry-night\`.
  * It’s based on what GitHub uses on their site.
  * See <https://github.com/wooorm/starry-night> for more info. */
@@ -2413,11 +2534,42 @@ exports[`--css --theme light 1`] = `
   color: var(--color-prettylights-syntax-constant-other-reference-link);
 }
 
+/* End of code from npm:@wooorm/starry-night/style/light.css */
+
+/*
+This next section of code is taken from npm:mark-applier/styles,
+which has the following license:
+
+MIT License Copyright (c) 2023 Lily Skye
+
+Permission is hereby granted, free of
+charge, to any person obtaining a copy of this software and associated
+documentation files (the "Software"), to deal in the Software without
+restriction, including without limitation the rights to use, copy, modify, merge,
+publish, distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to the
+following conditions:
+
+The above copyright notice and this permission notice
+(including the next paragraph) shall be included in all copies or substantial
+portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF
+ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO
+EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR
+OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+*/
 
 /* npm:mark-applier/styles/body-background-light.css */
 body {
+  color-scheme: dark;
+  --color-body-fg: #24292f;
   --color-body-bg: #ffffff;
   background-color: var(--color-body-bg);
+  color: var(--color-body-fg);
 }
 
 
@@ -2475,6 +2627,8 @@ a.link-icon:focus > svg {
   opacity: 1.0;
 }
 
+
+/* End of code from npm:mark-applier/styles */
 ",
 }
 `;
@@ -2486,7 +2640,22 @@ exports[`--css 1`] = `
   "stderr": "",
   "stdout": "/* NOTE: mark-applier styles have to come after github-markdown-css styles. */
 
-/* npm:github-markdown-css/github-markdown.css */
+/*
+
+This next section of code is taken from npm:github-markdown-css/github-markdown.css,
+which has the following license:
+
+MIT License
+
+Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (https://sindresorhus.com)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+*/
 @media (prefers-color-scheme: dark) {
   .markdown-body {
     color-scheme: dark;
@@ -3590,8 +3759,37 @@ exports[`--css 1`] = `
   filter: invert(50%);
 }
 
+/* End of code from npm:github-markdown-css/github-markdown.css */
 
-/* npm:@wooorm/starry-night/style/both.css */
+/*
+
+This next section of code is taken from npm:@wooorm/starry-night/style/both.css,
+which has the following license:
+
+(The MIT License)
+
+Copyright (c) 2022 Titus Wormer <tituswormer@gmail.com>
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+'Software'), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+*/
 /* This is a theme distributed by \`starry-night\`.
  * It’s based on what GitHub uses on their site.
  * See <https://github.com/wooorm/starry-night> for more info. */
@@ -3783,11 +3981,40 @@ exports[`--css 1`] = `
   color: var(--color-prettylights-syntax-constant-other-reference-link);
 }
 
+/* End of code from npm:@wooorm/starry-night/style/both.css */
+
+/*
+This next section of code is taken from npm:mark-applier/styles,
+which has the following license:
+
+MIT License Copyright (c) 2023 Lily Skye
+
+Permission is hereby granted, free of
+charge, to any person obtaining a copy of this software and associated
+documentation files (the "Software"), to deal in the Software without
+restriction, including without limitation the rights to use, copy, modify, merge,
+publish, distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to the
+following conditions:
+
+The above copyright notice and this permission notice
+(including the next paragraph) shall be included in all copies or substantial
+portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF
+ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO
+EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR
+OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+*/
 
 /* npm:mark-applier/styles/theme-override.css */
 /* the colors here match those found in node_modules/github-markdown-css/github-markdown.css */
 /* note that github-markdown.css itself contains color overrides that are compatible with starry-night, and so does this file. */
 
+.dark-theme,
 .dark-theme .markdown-body,
 .dark-theme.markdown-body {
   color-scheme: dark;
@@ -3835,6 +4062,7 @@ exports[`--css 1`] = `
   --color-danger-fg: #f85149;
 }
 
+.light-theme,
 .light-theme .markdown-body,
 .light-theme.markdown-body {
   color-scheme: light;
@@ -3885,13 +4113,17 @@ exports[`--css 1`] = `
 
 /* npm:mark-applier/styles/body-background-auto.css */
 body {
+  color-scheme: light;
+  --color-body-fg: #24292f;
   --color-body-bg: #ffffff;
   background-color: var(--color-body-bg);
+  color: var(--color-body-fg);
 }
 
 @media (prefers-color-scheme: dark) {
   body {
     color-scheme: dark;
+    --color-body-fg: #c9d1d9;
     --color-body-bg: #0d1117;
   }
 }
@@ -3899,17 +4131,20 @@ body {
 @media (prefers-color-scheme: light) {
   body {
     color-scheme: light;
+    --color-body-fg: #24292f;
     --color-body-bg: #ffffff;
   }
 }
 
 .dark-theme {
   color-scheme: dark;
+  --color-body-fg: #c9d1d9;
   --color-body-bg: #0d1117;
 }
 
 .light-theme {
   color-scheme: light;
+  --color-body-fg: #24292f;
   --color-body-bg: #ffffff;
 }
 
@@ -3968,6 +4203,8 @@ a.link-icon:focus > svg {
   opacity: 1.0;
 }
 
+
+/* End of code from npm:mark-applier/styles */
 ",
 }
 `;

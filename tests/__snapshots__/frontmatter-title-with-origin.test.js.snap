@@ -16,7 +16,22 @@ exports[`title (frontmatter, with origin) 1`] = `
     <style>
       /* NOTE: mark-applier styles have to come after github-markdown-css styles. */
 
-/* npm:github-markdown-css/github-markdown.css */
+/*
+
+This next section of code is taken from npm:github-markdown-css/github-markdown.css,
+which has the following license:
+
+MIT License
+
+Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (https://sindresorhus.com)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+*/
 @media (prefers-color-scheme: dark) {
   .markdown-body {
     color-scheme: dark;
@@ -1120,8 +1135,37 @@ exports[`title (frontmatter, with origin) 1`] = `
   filter: invert(50%);
 }
 
+/* End of code from npm:github-markdown-css/github-markdown.css */
 
-/* npm:@wooorm/starry-night/style/both.css */
+/*
+
+This next section of code is taken from npm:@wooorm/starry-night/style/both.css,
+which has the following license:
+
+(The MIT License)
+
+Copyright (c) 2022 Titus Wormer <tituswormer@gmail.com>
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+'Software'), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+*/
 /* This is a theme distributed by \`starry-night\`.
  * It’s based on what GitHub uses on their site.
  * See <https://github.com/wooorm/starry-night> for more info. */
@@ -1313,11 +1357,40 @@ exports[`title (frontmatter, with origin) 1`] = `
   color: var(--color-prettylights-syntax-constant-other-reference-link);
 }
 
+/* End of code from npm:@wooorm/starry-night/style/both.css */
+
+/*
+This next section of code is taken from npm:mark-applier/styles,
+which has the following license:
+
+MIT License Copyright (c) 2023 Lily Skye
+
+Permission is hereby granted, free of
+charge, to any person obtaining a copy of this software and associated
+documentation files (the "Software"), to deal in the Software without
+restriction, including without limitation the rights to use, copy, modify, merge,
+publish, distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to the
+following conditions:
+
+The above copyright notice and this permission notice
+(including the next paragraph) shall be included in all copies or substantial
+portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF
+ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO
+EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR
+OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+*/
 
 /* npm:mark-applier/styles/theme-override.css */
 /* the colors here match those found in node_modules/github-markdown-css/github-markdown.css */
 /* note that github-markdown.css itself contains color overrides that are compatible with starry-night, and so does this file. */
 
+.dark-theme,
 .dark-theme .markdown-body,
 .dark-theme.markdown-body {
   color-scheme: dark;
@@ -1365,6 +1438,7 @@ exports[`title (frontmatter, with origin) 1`] = `
   --color-danger-fg: #f85149;
 }
 
+.light-theme,
 .light-theme .markdown-body,
 .light-theme.markdown-body {
   color-scheme: light;
@@ -1415,13 +1489,17 @@ exports[`title (frontmatter, with origin) 1`] = `
 
 /* npm:mark-applier/styles/body-background-auto.css */
 body {
+  color-scheme: light;
+  --color-body-fg: #24292f;
   --color-body-bg: #ffffff;
   background-color: var(--color-body-bg);
+  color: var(--color-body-fg);
 }
 
 @media (prefers-color-scheme: dark) {
   body {
     color-scheme: dark;
+    --color-body-fg: #c9d1d9;
     --color-body-bg: #0d1117;
   }
 }
@@ -1429,17 +1507,20 @@ body {
 @media (prefers-color-scheme: light) {
   body {
     color-scheme: light;
+    --color-body-fg: #24292f;
     --color-body-bg: #ffffff;
   }
 }
 
 .dark-theme {
   color-scheme: dark;
+  --color-body-fg: #c9d1d9;
   --color-body-bg: #0d1117;
 }
 
 .light-theme {
   color-scheme: light;
+  --color-body-fg: #24292f;
   --color-body-bg: #ffffff;
 }
 
@@ -1499,22 +1580,218 @@ a.link-icon:focus > svg {
 }
 
 
+/* End of code from npm:mark-applier/styles */
+
     </style>
   </head>
   <body>
+    <!--
+The next style, script, and div elements come from npm:mark-applier/templates/theme-toggle.html.tmpl,
+which has the following license:
+
+MIT License Copyright (c) 2023 Lily Skye
+
+Permission is hereby granted, free of
+charge, to any person obtaining a copy of this software and associated
+documentation files (the "Software"), to deal in the Software without
+restriction, including without limitation the rights to use, copy, modify, merge,
+publish, distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to the
+following conditions:
+
+The above copyright notice and this permission notice
+(including the next paragraph) shall be included in all copies or substantial
+portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF
+ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO
+EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR
+OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+-->
+<style>
+  #mark-applier-theme-toggle {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    /* Copied from .markdown-body styles */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans",
+      Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+    font-size: 16px;
+  }
+
+  #mark-applier-theme-toggle label {
+    display: inline-block;
+    background-color: var(--color-body-bg);
+    color: var(--color-body-fg);
+    padding: 3px 4px 4px 4px;
+    border-bottom-left-radius: 4px;
+    border: 1px solid var(--color-body-fg);
+    border-top-width: 0px;
+    border-right-width: 0px;
+  }
+
+  /* breakpoint here matches that found in page-layout.css */
+  @media (max-width: 767px) {
+    #mark-applier-theme-toggle + .markdown-body {
+      padding-top: 28px;
+    }
+  }
+</style>
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    function init() {
+      const storageKey = "mark-applier-selected-theme";
+
+      const themeFromStorage = localStorage.getItem(storageKey);
+      const osPreferredTheme = getOsPreferredTheme();
+
+      const checkbox = document.body.querySelector(
+        '#mark-applier-theme-toggle input[type="checkbox"]'
+      );
+      if (checkbox == null) {
+        console.warn("Failed to find light-mode/dark-mode toggle checkbox");
+        return;
+      }
+
+      if (themeFromStorage != null) {
+        setTheme(themeFromStorage === "dark");
+      }
+
+      const effectiveTheme = themeFromStorage || osPreferredTheme || "light";
+      if (effectiveTheme === "dark") {
+        checkbox.checked = true;
+      } else {
+        checkbox.checked = false;
+      }
+
+      checkbox.addEventListener("change", () => {
+        setTheme(checkbox.checked);
+      });
+    }
+
+    function getOsPreferredTheme() {
+      if (!window.matchMedia) return null;
+
+      if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+        return "dark";
+      } else if (window.matchMedia("(prefers-color-scheme: light)").matches) {
+        return "light";
+      }
+
+      return null;
+    }
+
+    function setTheme(isDark) {
+      if (isDark) {
+        document.body.classList.remove("light-theme");
+        document.body.classList.add("dark-theme");
+      } else {
+        document.body.classList.remove("dark-theme");
+        document.body.classList.add("light-theme");
+      }
+    }
+
+    init();
+  });
+</script>
+<div id="mark-applier-theme-toggle">
+  <label>
+    Dark Theme
+    <input type="checkbox" />
+  </label>
+</div>
+
     <article class="markdown-body">
-      <h1 id="index">Index<a class="link-icon" aria-label="link to heading" tabindex="0" href="#index"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
+      <h1 id="index">Index<a class="link-icon" aria-label="link to heading" tabindex="0" href="#index"><!--
+This svg icon comes from [Octicons](https://primer.style/design/foundations/icons),
+which has the following license:
+
+MIT License
+
+Copyright (c) 2023 GitHub Inc.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
   <path fill="currentColor" d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path>
 </svg></a></h1>
 <p>This is the index page. Neat, huh?</p>
 <p>Here is a link to <a href="./some-page.html">some page</a>, and here is <em>another</em> link, this time to <a href="./some-other-page.html">some <code>other</code> page!</a>. There's also a link to <a href="./some-subfolder/something.html">a third page</a> here, as well. <del>Fancy that!</del></p>
 <p>Or maybe you want to go to <a href="./fixture.html">the fixture</a>?</p>
-<p>You could also look at the <a href="./headings.html">headings test page</a> if you'd like.</p>
+<p>You could also look at the <a href="./headings.html">headings test page</a> if you'd like. Or maybe the <a href="./just-a-ton-of-text.html">page with a ton of text on it</a>.</p>
 <hr>
 <p>That first link had no filename extension, and that second link had a <code>.md</code> extension, and that third link had a <code>.html</code> extension. Those all work and resolve properly.</p>
-<div class="highlight highlight-js"><pre><span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-s"><span class="pl-pds">"</span>this is some js<span class="pl-pds">"</span></span>);
+<div class="highlight highlight-js"><!--The syntax highglighting of the following code block is provided by
+npm:@wooorm/starry-night, which has the following license:
+
+(The MIT License)
+
+Copyright (c) 2022 Titus Wormer <tituswormer@gmail.com>
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+'Software'), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.--><pre><span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-s"><span class="pl-pds">"</span>this is some js<span class="pl-pds">"</span></span>);
 </pre></div>
-<div class="highlight highlight-gfm"><pre><span class="pl-mh"># this is some markdown</span>
+<div class="highlight highlight-gfm"><!--The syntax highglighting of the following code block is provided by
+npm:@wooorm/starry-night, which has the following license:
+
+(The MIT License)
+
+Copyright (c) 2022 Titus Wormer <tituswormer@gmail.com>
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+'Software'), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.--><pre><span class="pl-mh"># this is some markdown</span>
 </pre></div>
 <hr>
 <p>You reached the bottom of the page! Congrats. Maybe you want to go to <a href="https://google.com" target="_blank" rel="nofollow noopener noreferrer">https://google.com</a> next?</p>

@@ -1,8 +1,10 @@
-// TODO: put this in license stuff later
-/*
-These icons come from [Octicons](https://primer.style/design/foundations/icons), which has this license:
+import { fromHtml } from "hast-util-from-html";
 
-```
+const svg = `
+<!--
+This svg icon comes from [Octicons](https://primer.style/design/foundations/icons),
+which has the following license:
+
 MIT License
 
 Copyright (c) 2023 GitHub Inc.
@@ -24,12 +26,7 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-```
-*/
-
-import { fromHtml } from "hast-util-from-html";
-
-const svg = `
+-->
 <svg
   xmlns="http://www.w3.org/2000/svg"
   viewBox="0 0 16 16"
@@ -43,6 +40,4 @@ const svg = `
 </svg>
 `.trim();
 
-const linkIconRoot = fromHtml(svg, { fragment: true });
-
-export const linkIconTree = linkIconRoot.children[0];
+export const linkIconTree = fromHtml(svg, { fragment: true });
