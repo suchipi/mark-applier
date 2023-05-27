@@ -40,6 +40,8 @@ async function main() {
       await fs.promises.copyFile(file, targetPath);
     }
   }
+
+  console.log("Done!");
 }
 
 clefairy.run({}, main);

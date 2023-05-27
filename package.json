@@ -7,14 +7,16 @@
   "types": "dist/index.d.ts",
   "bin": "dist/cli.js",
   "scripts": {
-    "build": "rm -rf dist && tsc && chmod +x dist/cli.js",
-    "manual-tests": "npm run build && npm run manual-tests:build && concurrently 'npm run manual-tests:host' 'npm run manual-tests:open'",
+    "start": "concurrently --names 'build,host,open ' 'npm run build:watch' 'npm run manual-tests:host' 'npm run manual-tests:open'",
+    "build": "npm run app:build && npm run manual-tests:build",
+    "build:watch": "chokidar 'fixtures/**/*' 'manual-tests/**/*' '!manual-tests/rendered' '!manual-tests/rendered/**/*' 'src/**/*' 'styles/**/*' 'templates/**/*' -c 'npm run build'",
+    "app:build": "rm -rf dist && tsc && chmod +x dist/cli.js",
     "manual-tests:build": "manual-tests/generate-all.js",
     "manual-tests:host": "http-server -p 8080 manual-tests/rendered",
     "manual-tests:open": "open-cli http://localhost:8080",
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
-    "ci": "npm install && npm run build && env CI=true npm run test && npm run manual-tests:build",
-    "gh-pages:build": "mkdir -p _site && npm install && npm run build && dist/cli.js --origin http://localhost -i README.md -o _site/index.html"
+    "ci": "npm install && npm run app:build && env CI=true npm run test && npm run manual-tests:build",
+    "gh-pages:build": "mkdir -p _site && npm install && npm run app:build && dist/cli.js --origin http://localhost -i README.md -o _site/index.html"
   },
   "keywords": [
     "website",
@@ -51,6 +53,7 @@
   },
   "devDependencies": {
     "@types/node": "^18.16.2",
+    "chokidar-cli": "^3.0.0",
     "concurrently": "^8.0.1",
     "first-base": "^1.3.0",
     "glomp": "^3.1.1",
