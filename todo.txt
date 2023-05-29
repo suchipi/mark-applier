@@ -1,1 +1,14 @@
+- [x] use https://github.com/sindresorhus/github-markdown-css
+- [x] with this https://github.com/wooorm/starry-night#install
+- [x] and mdast plugin that runs resolve-link.ts on links and images
+- [x] CLI (clefairy etc)
+- [x] support getting page title from frontmatter
+- [x] document front matter stuff
+- [x] update documentation in README re: template stuff
+- [x] `--help`
+- [x] automated tests
+- [x] release it!!!
+- [x] implement links to headings via element ids and document hash
+- [x] manual switch for light/dark mode
+- [x] embed license attributions into an html (or css) comment in the final page
 - [x] switch template engine to handlebars or moustache; something normal
