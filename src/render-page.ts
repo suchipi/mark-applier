@@ -26,13 +26,11 @@ export function renderPage(
     );
   }
 
-  return renderTemplate(
-    rel("../templates/page.html.tmpl", import.meta.url),
-    {
-      content,
-      title: options.title,
-      origin: options.origin,
-    },
-    { css, checkboxHtml }
-  );
+  return renderTemplate(rel("../templates/page.html.tmpl", import.meta.url), {
+    content,
+    title: options.title,
+    origin: options.origin,
+    css,
+    checkboxHtml,
+  });
 }

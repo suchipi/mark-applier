@@ -12,7 +12,6 @@ exports[`title (frontmatter, with origin) 1`] = `
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Index - mark-applier tests</title>
-
     <style>
       /* NOTE: mark-applier styles have to come after github-markdown-css styles. */
 

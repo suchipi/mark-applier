@@ -1,1 +1,1 @@
-- [ ] switch template engine to handlebars or moustache; something normal
+- [x] switch template engine to handlebars or moustache; something normal

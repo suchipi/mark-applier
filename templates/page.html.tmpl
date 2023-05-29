@@ -4,15 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    #TITLE
+    <%= title ? `<title>${_.escape(title)}</title>` : "" %>
     <style>
-      #PLACEHOLDER("css")
+      <%= css %>
     </style>
   </head>
   <body>
-    #PLACEHOLDER("checkboxHtml")
+    <%= checkboxHtml %>
     <article class="markdown-body">
-      #CONTENT
+      <%= content %>
     </article>
   </body>
 </html>

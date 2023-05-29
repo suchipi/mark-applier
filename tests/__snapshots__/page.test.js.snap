@@ -14,7 +14,6 @@ WARNING: Skipping syntax highlighting for unknown language: no-highlight
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     
-
     <style>
       /* NOTE: mark-applier styles have to come after github-markdown-css styles. */
 
