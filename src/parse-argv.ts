@@ -13,6 +13,7 @@ export type Flags = {
   h?: boolean;
   help?: boolean;
   theme?: string;
+  readFrontMatter?: string;
 };
 
 export type Context =
@@ -42,6 +43,13 @@ export type Context =
       // null means write to stdout
       outputPath: string | null;
       origin: string | null;
+    }
+  | {
+      target: "readFrontMatter";
+      // null means read stdin
+      inputPath: string | null;
+      // null means write to stdout
+      outputPath: string | null;
     };
 
 export function parseArgv(flags: Flags): Context {
@@ -56,6 +64,10 @@ export function parseArgv(flags: Flags): Context {
   const theme = flags.theme ?? "auto";
   if (!isThemeName(theme)) {
     throw invalidThemeError(theme);
+  }
+
+  if (flags.readFrontMatter) {
+    return { target: "readFrontMatter", inputPath, outputPath };
   }
 
   if (flags.css) {

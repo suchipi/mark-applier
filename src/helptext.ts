@@ -7,12 +7,13 @@ options:
   -i / --input: Input file path (when omitted, reads from STDIN)
   -o / --output: Output file path (when omitted, prints to STDOUT)
 
-  --title: Set page title. Alternatively, use yml frontmatter 'title' key
-  --origin: Set page origin (scheme and domain, eg 'https://example.com'). Alternatively, use yml frontmatter 'origin' key
+  --title: Set page title. Alternatively, use yml front-matter 'title' key
+  --origin: Set page origin (scheme and domain, eg 'https://example.com'). Alternatively, use yml front-matter 'origin' key
   --theme: CSS theme; 'light', 'dark', or 'auto'. Defaults to 'auto'.
 
   --raw: Output raw HTML document fragment instead of entire document
   --css: Output CSS stylesheet instead of HTML (input is ignored)
+  --read-front-matter: Output front-matter from input as JSON
 
 examples:
   # Create README.html page from README.md

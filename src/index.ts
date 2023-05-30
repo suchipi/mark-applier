@@ -8,6 +8,11 @@ export function makeCss(theme: ThemeName) {
   return renderCss(theme);
 }
 
+export async function readFrontMatter(input: string) {
+  const { data } = getFrontMatter(input);
+  return data;
+}
+
 export async function makeRawHtml(
   input: string,
   options: { origin?: string | null }

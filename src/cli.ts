@@ -54,6 +54,9 @@ clefairy.run(
       output = await markApplier.makeRawHtml(markdown, context);
     } else if (context.target === "page") {
       output = await markApplier.makePageHtml(markdown, context);
+    } else if (context.target === "readFrontMatter") {
+      const data = await markApplier.readFrontMatter(markdown);
+      output = JSON.stringify(data, null, 2);
     } else {
       throw new Error(
         "Internal error: unknown CLI target: " + (context as any).target
