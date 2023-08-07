@@ -13,7 +13,7 @@ export type Flags = {
   h?: boolean;
   help?: boolean;
   theme?: string;
-  readFrontMatter?: string;
+  readFrontMatter?: boolean;
 };
 
 export type Context =

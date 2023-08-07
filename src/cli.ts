@@ -13,12 +13,13 @@ clefairy.run(
     title: clefairy.optionalString,
     origin: clefairy.optionalString,
     i: clefairy.optionalPath,
-    input: clefairy.optionalPath,
     o: clefairy.optionalPath,
+    input: clefairy.optionalPath,
     output: clefairy.optionalPath,
     h: clefairy.optionalBoolean,
     help: clefairy.optionalBoolean,
     theme: clefairy.optionalString,
+    readFrontMatter: clefairy.optionalBoolean,
   },
   async (options: Flags) => {
     const context = parseArgv(options);
