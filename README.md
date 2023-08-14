@@ -29,6 +29,8 @@ https://suchipi.github.io/mark-applier/ has been generated from this README.
   - Task lists
   - ...and more
 - Supports both light and dark theme (based on [@media prefers-color-scheme](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme), though you can override that if you prefer)
+- Outputs each page as a single, self-contained html file
+- Supports relative links between different `.md` files (changes ending `.md` to `.html` in links to the same origin)
 - Super simple usage
 - Generated pages work even when JavaScript is disabled
 
