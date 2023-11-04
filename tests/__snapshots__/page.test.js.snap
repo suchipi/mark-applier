@@ -10,6 +10,7 @@ WARNING: Skipping syntax highlighting for unknown language: no-highlight
   "stdout": "<!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- This page was generated from markdown using mark-applier. https://github.com/suchipi/mark-applier -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
