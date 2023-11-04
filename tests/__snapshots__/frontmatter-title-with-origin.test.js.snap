@@ -1698,35 +1698,29 @@ body {
 
 
 /* npm:mark-applier/styles/icons.css */
-/* headers with ids get links, so any header with a non-empty id will have a link in it */
-h1[id]:not([id=""]),
-h2[id]:not([id=""]),
-h3[id]:not([id=""]),
-h4[id]:not([id=""]),
-h5[id]:not([id=""]),
-h6[id]:not([id=""]) {
-  display: flex;
-  flex-direction: row-reverse;
-  justify-content: flex-end;
-}
+/* github-markdown-css doesn't match GitHub when it comes to heading links. so I'm manually fixing it */
 
-a.link-icon {
-  /* unset default link styles */
-  color: inherit;
-  text-decoration: none;
+.markdown-body .heading-link {
+  /* remove default link blue color */
+  color: unset;
 
+  /* so svg link icon is centered nicely */
   display: inline-flex;
   align-items: center;
 }
-
-a.link-icon > svg {
-  margin-left: -20px;
-  opacity: 0.0;
+.markdown-body :is(h1, h2, h3, h4, h5, h6) a,
+.markdown-body :is(h1, h2, h3, h4, h5, h6) a:hover {
+  /* remove default link underline */
+  text-decoration: none;
 }
 
-a.link-icon:hover > svg,
-a.link-icon:focus > svg {
-  opacity: 1.0;
+.markdown-body .heading-link svg.octicon-link {
+  /* github-markdown-css only shows this on hover, but it's always visible on GitHub nowadays */
+  visibility: visible;
+  color: var(--color-fg-muted);
+
+  /* some distance from the heading link text. 8px value matches github.com */
+  margin-left: 8px;
 }
 
 
@@ -1856,7 +1850,7 @@ THE SOFTWARE.
 </div>
 
     <article class="markdown-body">
-      <h1 id="index">Index<a class="link-icon" aria-label="link to heading" tabindex="0" href="#index"><!--
+      <h1 id="index"><a class="heading-link" href="#index">Index<!--
 This svg icon comes from [Octicons](https://primer.style/design/foundations/icons),
 which has the following license:
 
@@ -1882,7 +1876,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 -->
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
+<svg class="octicon octicon-link" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
   <path fill="currentColor" d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path>
 </svg></a></h1>
 <p>This is the index page. Neat, huh?</p>
