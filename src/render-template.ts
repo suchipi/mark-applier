@@ -1,14 +1,14 @@
 import * as fs from "node:fs";
 import path from "node:path";
-import { createRequire } from "node:module";
 import _ from "lodash";
+import resolve from "resolve";
 import { rel } from "./rel.js";
-
-const require = createRequire(import.meta.url);
 
 function nodeModulesDirForPackage(packageName: string) {
   const specifier = packageName + "/package.json";
-  const pkgJsonPath = require.resolve(specifier);
+  const pkgJsonPath = resolve.sync(specifier, {
+    basedir: import.meta.url.replace(/^file:\/\//, ""),
+  });
 
   return pkgJsonPath.replace(new RegExp(specifier + "$"), "");
 }

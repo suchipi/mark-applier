@@ -57,7 +57,7 @@ export const rehypeStarryNight: Plugin<[], Root> = () => {
       const fragment = starryNight.highlight(toString(head), scope);
       const children: Array<ElementContent> = fragment.children as any;
 
-      parent.children.splice(index, 1, {
+      parent.children.splice(index || 0, 1, {
         type: "element",
         tagName: "div",
         properties: {
