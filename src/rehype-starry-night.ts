@@ -70,7 +70,7 @@ export const rehypeStarryNight: Plugin<[], Root> = () => {
           {
             type: "comment",
             value: `
-The syntax highglighting of the following code block is provided by
+The syntax highlighting of the following code block is provided by
 npm:@wooorm/starry-night, which has the following license:
 
 (The MIT License)

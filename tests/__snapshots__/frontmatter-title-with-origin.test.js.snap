@@ -1891,7 +1891,7 @@ SOFTWARE.
 <p>You could also look at the <a href="./headings.html">headings test page</a> if you'd like. Or maybe the <a href="./just-a-ton-of-text.html">page with a ton of text on it</a>.</p>
 <hr>
 <p>That first link had no filename extension, and that second link had a <code>.md</code> extension, and that third link had a <code>.html</code> extension. Those all work and resolve properly.</p>
-<div class="highlight highlight-js"><!--The syntax highglighting of the following code block is provided by
+<div class="highlight highlight-js"><!--The syntax highlighting of the following code block is provided by
 npm:@wooorm/starry-night, which has the following license:
 
 (The MIT License)
@@ -1917,7 +1917,7 @@ CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.--><pre><span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-s"><span class="pl-pds">"</span>this is some js<span class="pl-pds">"</span></span>);
 </pre></div>
-<div class="highlight highlight-text-md"><!--The syntax highglighting of the following code block is provided by
+<div class="highlight highlight-text-md"><!--The syntax highlighting of the following code block is provided by
 npm:@wooorm/starry-night, which has the following license:
 
 (The MIT License)

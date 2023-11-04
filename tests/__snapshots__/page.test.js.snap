@@ -2736,7 +2736,7 @@ No language indicated, so no syntax highlighting.
 But let's throw in a &lt;b&gt;tag&lt;/b&gt;.
 \`\`\`
 </code></pre>
-<div class="highlight highlight-js"><!--The syntax highglighting of the following code block is provided by
+<div class="highlight highlight-js"><!--The syntax highlighting of the following code block is provided by
 npm:@wooorm/starry-night, which has the following license:
 
 (The MIT License)
@@ -2763,7 +2763,7 @@ TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.--><pre><span class="pl-k">var</span> s <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>JavaScript syntax highlighting<span class="pl-pds">"</span></span>;
 <span class="pl-en">alert</span>(s);
 </pre></div>
-<div class="highlight highlight-python"><!--The syntax highglighting of the following code block is provided by
+<div class="highlight highlight-python"><!--The syntax highlighting of the following code block is provided by
 npm:@wooorm/starry-night, which has the following license:
 
 (The MIT License)
@@ -4327,7 +4327,7 @@ Blah
     <summary>My Example</summary>
     Hello world
 </details>
-<div class="highlight highlight-diff"><!--The syntax highglighting of the following code block is provided by
+<div class="highlight highlight-diff"><!--The syntax highlighting of the following code block is provided by
 npm:@wooorm/starry-night, which has the following license:
 
 (The MIT License)
