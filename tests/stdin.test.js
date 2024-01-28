@@ -11,8 +11,7 @@ test("reading from stdin", async () => {
 {
   "code": 0,
   "error": false,
-  "stderr": "WARNING: I'd like to make links to external websites open in a new tab, but I can't do that unless you tell me where your website will be hosted. If you want that, specify your origin like this: '--origin https://example.com'.
-",
+  "stderr": "",
   "stdout": "<h1 id="hi-there"><a class="heading-link" href="#hi-there">hi there<!--
 This svg icon comes from [Octicons](https://primer.style/design/foundations/icons),
 which has the following license:

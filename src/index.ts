@@ -22,7 +22,10 @@ export async function makeRawHtml(
   // `options` takes precedence over frontmatter
   const origin = options.origin ?? data.origin;
 
-  const rawHtml = await markdownToHtml(content, { origin });
+  const rawHtml = await markdownToHtml(content, {
+    origin,
+    suppressOriginWarning: true,
+  });
   return rawHtml;
 }
 
@@ -37,7 +40,10 @@ export async function makePageHtml(
   const title = options.title ?? data.title;
   const theme = options.theme ?? "auto";
 
-  const rawHtml = await markdownToHtml(content, { origin });
+  const rawHtml = await markdownToHtml(content, {
+    origin,
+    suppressOriginWarning: false,
+  });
   const pageHtml = renderPage(rawHtml, { origin, title, theme });
   return pageHtml;
 }

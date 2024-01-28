@@ -12,7 +12,7 @@ import { rehypeHeadingLinkIcon } from "./rehype-heading-link-icon.js";
 
 export async function markdownToHtml(
   input: string,
-  options: { origin?: string }
+  options: { origin?: string; suppressOriginWarning: boolean }
 ): Promise<string> {
   const processor = unified()
     .use(remarkParse)
