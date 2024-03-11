@@ -1,24 +1,30 @@
-/* github-markdown-css doesn't match GitHub when it comes to heading links. so I'm manually fixing it */
+/* headers with ids get links, so any header with a non-empty id will have a link in it */
+h1[id]:not([id=""]),
+h2[id]:not([id=""]),
+h3[id]:not([id=""]),
+h4[id]:not([id=""]),
+h5[id]:not([id=""]),
+h6[id]:not([id=""]) {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+}
 
-.markdown-body .heading-link {
-  /* remove default link blue color */
-  color: unset;
+a.link-icon {
+  /* unset default link styles */
+  color: inherit;
+  text-decoration: none;
 
-  /* so svg link icon is centered nicely */
   display: inline-flex;
   align-items: center;
 }
-.markdown-body :is(h1, h2, h3, h4, h5, h6) a,
-.markdown-body :is(h1, h2, h3, h4, h5, h6) a:hover {
-  /* remove default link underline */
-  text-decoration: none;
+
+a.link-icon > svg {
+  margin-left: -20px;
+  opacity: 0.0;
 }
 
-.markdown-body .heading-link svg.octicon-link {
-  /* github-markdown-css only shows this on hover, but it's always visible on GitHub nowadays */
-  visibility: visible;
-  color: var(--color-fg-muted);
-
-  /* some distance from the heading link text. 8px value matches github.com */
-  margin-left: 8px;
+a.link-icon:hover > svg,
+a.link-icon:focus > svg {
+  opacity: 1.0;
 }

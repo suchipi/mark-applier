@@ -14,7 +14,7 @@ export const rehypeStarryNight: Plugin<[], Root> = () => {
     const starryNight = await starryNightPromise;
 
     visit(tree, "element", function (node, index, parent) {
-      if (!parent || index == null || node.tagName !== "pre") {
+      if (!parent || index === null || node.tagName !== "pre") {
         return;
       }
 
@@ -57,7 +57,7 @@ export const rehypeStarryNight: Plugin<[], Root> = () => {
       const fragment = starryNight.highlight(toString(head), scope);
       const children: Array<ElementContent> = fragment.children as any;
 
-      parent.children.splice(index, 1, {
+      parent.children.splice(index || 0, 1, {
         type: "element",
         tagName: "div",
         properties: {

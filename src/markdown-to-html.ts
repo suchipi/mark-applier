@@ -8,7 +8,7 @@ import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import { rehypeLinkTarget } from "./rehype-link-target.js";
 import { rehypeLinkMdToHtml } from "./rehype-link-md-to-html.js";
 import { rehypeStarryNight } from "./rehype-starry-night.js";
-import { rehypeHeadingLinkIcon } from "./rehype-heading-link-icon.js";
+import { linkIconTree } from "./link-icon-as-hast-tree.js";
 
 export async function markdownToHtml(
   input: string,
@@ -20,12 +20,14 @@ export async function markdownToHtml(
     .use(remarkRehype, { allowDangerousHtml: true })
     .use(rehypeSlug)
     .use(rehypeAutolinkHeadings, {
-      behavior: "wrap",
+      behavior: "append",
+      content: linkIconTree,
       properties: {
-        className: "heading-link",
+        className: "link-icon",
+        ariaLabel: "link to heading",
+        tabIndex: 0,
       },
     } as any)
-    .use(rehypeHeadingLinkIcon)
     .use(rehypeLinkTarget, options)
     .use(rehypeLinkMdToHtml, options)
     .use(rehypeStarryNight)
