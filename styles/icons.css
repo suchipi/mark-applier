@@ -21,10 +21,25 @@ a.link-icon {
 
 a.link-icon > svg {
   margin-left: -20px;
+  padding-right: 4px;
   opacity: 0.0;
 }
 
-a.link-icon:hover > svg,
 a.link-icon:focus > svg {
+  opacity: 1.0;
+}
+
+h1:hover a.link-icon > svg,
+h2:hover a.link-icon > svg,
+h3:hover a.link-icon > svg,
+h4:hover a.link-icon > svg,
+h5:hover a.link-icon > svg,
+h6:hover a.link-icon > svg,
+h1:focus a.link-icon > svg,
+h2:focus a.link-icon > svg,
+h3:focus a.link-icon > svg,
+h4:focus a.link-icon > svg,
+h5:focus a.link-icon > svg,
+h6:focus a.link-icon > svg {
   opacity: 1.0;
 }

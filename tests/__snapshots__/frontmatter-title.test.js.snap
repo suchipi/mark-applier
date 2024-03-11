@@ -1771,11 +1771,26 @@ a.link-icon {
 
 a.link-icon > svg {
   margin-left: -20px;
+  padding-right: 4px;
   opacity: 0.0;
 }
 
-a.link-icon:hover > svg,
 a.link-icon:focus > svg {
+  opacity: 1.0;
+}
+
+h1:hover a.link-icon > svg,
+h2:hover a.link-icon > svg,
+h3:hover a.link-icon > svg,
+h4:hover a.link-icon > svg,
+h5:hover a.link-icon > svg,
+h6:hover a.link-icon > svg,
+h1:focus a.link-icon > svg,
+h2:focus a.link-icon > svg,
+h3:focus a.link-icon > svg,
+h4:focus a.link-icon > svg,
+h5:focus a.link-icon > svg,
+h6:focus a.link-icon > svg {
   opacity: 1.0;
 }
 
@@ -1906,7 +1921,7 @@ THE SOFTWARE.
 </div>
 
     <article class="markdown-body">
-      <h1 id="index"><a class="heading-link" href="#index">Index<!--
+      <h1 id="index">Index<a class="link-icon" aria-label="link to heading" tabindex="0" href="#index"><!--
 This svg icon comes from [Octicons](https://primer.style/design/foundations/icons),
 which has the following license:
 
@@ -1932,7 +1947,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 -->
-<svg class="octicon octicon-link" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
   <path fill="currentColor" d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path>
 </svg></a></h1>
 <p>This is the index page. Neat, huh?</p>
