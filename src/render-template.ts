@@ -3,14 +3,20 @@ import path from "node:path";
 import _ from "lodash";
 import resolve from "resolve";
 import { rel } from "./rel.js";
+import makeDebug from "debug";
+
+const debug = makeDebug("mark-applier:render-remplate");
 
 function nodeModulesDirForPackage(packageName: string) {
-  const specifier = packageName + "/package.json";
-  const pkgJsonPath = resolve.sync(specifier, {
-    basedir: import.meta.url.replace(/^file:\/\//, ""),
-  });
+  const basedir = path.dirname(import.meta.url.replace(/^file:\/\//, ""));
+  debug(`searching for ${packageName} from ${basedir}`);
 
-  return pkgJsonPath.replace(new RegExp(specifier + "$"), "");
+  const specifier = packageName + "/package.json";
+  const pkgJsonPath = resolve.sync(specifier, { basedir });
+
+  const result = pkgJsonPath.replace(new RegExp(specifier + "$"), "");
+  debug(`found ${packageName} in ${result}`);
+  return result;
 }
 
 export type TemplateData = {
@@ -34,6 +40,8 @@ export function renderTemplate(
   templatePath: string,
   data: TemplateData = {}
 ): string {
+  debug("renderTemplate", templatePath, data);
+
   if (!path.isAbsolute(templatePath)) {
     const err = new Error(
       `Template path must be an absolute path, but received: '${templatePath}'`
@@ -57,9 +65,11 @@ export function renderTemplate(
   }
 
   const include = (includedPath: string) => {
+    debug("include searching for", includedPath);
     for (const nodeModulesDir of nodeModulesDirs) {
       const potentialPath = path.join(nodeModulesDir, includedPath);
       if (fs.existsSync(potentialPath)) {
+        debug("include found", includedPath, "at", potentialPath);
         return renderTemplate(potentialPath, data);
       }
     }

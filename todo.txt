@@ -14,3 +14,4 @@
 - [x] switch template engine to handlebars or moustache; something normal
 - [ ] add way to use dark-dimmed for dark mode instead of normal dark
   - and just, choosing themes in general. GitHub has a lot of different ones these days
+- [ ] add more debug logs everywhere
