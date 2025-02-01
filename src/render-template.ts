@@ -8,7 +8,9 @@ import makeDebug from "debug";
 const debug = makeDebug("mark-applier:render-remplate");
 
 function nodeModulesDirForPackage(packageName: string) {
-  const basedir = path.dirname(import.meta.url.replace(/^file:\/\//, ""));
+  const basedir = path.dirname(
+    decodeURIComponent(import.meta.url.replace(/^file:\/\//, ""))
+  );
   debug(`searching for ${packageName} from ${basedir}`);
 
   const specifier = packageName + "/package.json";
