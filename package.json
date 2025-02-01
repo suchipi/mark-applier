@@ -1,6 +1,6 @@
 {
   "name": "mark-applier",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "description": "Markdown-to-Website Generator, GitHub README style",
   "type": "module",
   "main": "dist/index.js",
