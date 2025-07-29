@@ -32,7 +32,11 @@ clefairy.run(
     if (context.target === "css") {
       const output = markApplier.makeCss(context.theme);
       if (context.outputPath) {
-        await fs.promises.writeFile(context.outputPath, output, "utf-8");
+        await fs.promises.writeFile(
+          context.outputPath.toString(),
+          output,
+          "utf-8"
+        );
       } else {
         process.stdout.write(output, "utf-8");
       }
@@ -41,7 +45,10 @@ clefairy.run(
 
     let markdown: string;
     if (context.inputPath != null) {
-      markdown = await fs.promises.readFile(context.inputPath, "utf-8");
+      markdown = await fs.promises.readFile(
+        context.inputPath.toString(),
+        "utf-8"
+      );
     } else if (!process.stdin.isTTY) {
       markdown = await getStdin();
     } else {
@@ -65,7 +72,11 @@ clefairy.run(
     }
 
     if (context.outputPath != null) {
-      await fs.promises.writeFile(context.outputPath, output, "utf-8");
+      await fs.promises.writeFile(
+        context.outputPath.toString(),
+        output,
+        "utf-8"
+      );
     } else {
       process.stdout.write(output, "utf-8");
     }

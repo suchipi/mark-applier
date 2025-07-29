@@ -39,8 +39,8 @@
   "license": "MIT",
   "dependencies": {
     "@wooorm/starry-night": "^3.1.0",
-    "clefairy": "^0.4.0",
-    "debug": "^4.4.0",
+    "clefairy": "^2.1.0",
+    "debug": "^4.4.1",
     "get-stdin": "^9.0.0",
     "github-markdown-css": "^5.4.0",
     "gray-matter": "^4.0.3",
@@ -54,25 +54,25 @@
     "remark-gfm": "^4.0.0",
     "remark-parse": "^11.0.0",
     "remark-rehype": "^11.0.0",
-    "resolve": "^1.22.8",
+    "resolve": "^1.22.10",
     "unified": "^11.0.4",
     "unist-util-visit": "^5.0.0"
   },
   "devDependencies": {
     "@types/debug": "^4.1.12",
-    "@types/lodash": "^4.14.200",
-    "@types/node": "^20.8.10",
-    "@types/resolve": "^1.20.4",
+    "@types/lodash": "^4.17.20",
+    "@types/node": "^24.1.0",
+    "@types/resolve": "^1.20.6",
     "chokidar-cli": "^3.0.0",
-    "concurrently": "^8.2.2",
-    "first-base": "^1.3.0",
+    "concurrently": "^9.2.0",
+    "first-base": "^1.5.2",
     "glomp": "^3.1.1",
     "hast": "^1.0.0",
     "http-server": "^14.1.1",
-    "jest": "^29.7.0",
-    "open-cli": "^7.2.0",
-    "path-less-traveled": "^2.0.0",
-    "typescript": "^5.2.2"
+    "jest": "^30.0.5",
+    "open-cli": "^8.0.0",
+    "path-less-traveled": "^2.1.0",
+    "typescript": "^5.8.3"
   },
   "jest": {
     "transform": {}

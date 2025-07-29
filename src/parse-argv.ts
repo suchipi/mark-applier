@@ -1,3 +1,4 @@
+import { Path } from "clefairy";
 import { warn } from "./warn.js";
 import { ThemeName, invalidThemeError, isThemeName } from "./theme.js";
 
@@ -6,10 +7,10 @@ export type Flags = {
   css?: boolean;
   title?: string;
   origin?: string;
-  i?: string;
-  o?: string;
-  input?: string;
-  output?: string;
+  i?: Path;
+  o?: Path;
+  input?: Path;
+  output?: Path;
   h?: boolean;
   help?: boolean;
   theme?: string;
@@ -23,15 +24,15 @@ export type Context =
   | {
       target: "css";
       // null means write to stdout
-      outputPath: string | null;
+      outputPath: Path | null;
       theme: ThemeName;
     }
   | {
       target: "page";
       // null means read stdin
-      inputPath: string | null;
+      inputPath: Path | null;
       // null means write to stdout
-      outputPath: string | null;
+      outputPath: Path | null;
       title: string | null;
       origin: string | null;
       theme: ThemeName;
@@ -39,17 +40,17 @@ export type Context =
   | {
       target: "raw";
       // null means read stdin
-      inputPath: string | null;
+      inputPath: Path | null;
       // null means write to stdout
-      outputPath: string | null;
+      outputPath: Path | null;
       origin: string | null;
     }
   | {
       target: "readFrontMatter";
       // null means read stdin
-      inputPath: string | null;
+      inputPath: Path | null;
       // null means write to stdout
-      outputPath: string | null;
+      outputPath: Path | null;
     };
 
 export function parseArgv(flags: Flags): Context {
