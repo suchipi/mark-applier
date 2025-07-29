@@ -11,7 +11,9 @@ test("reading from stdin", async () => {
 {
   "code": 0,
   "error": false,
-  "stderr": "",
+  "stderr": "(node:11618) [DEP0180] DeprecationWarning: fs.Stats constructor is deprecated.
+(Use \`node --trace-deprecation ...\` to show where the warning was created)
+",
   "stdout": "<h1 id="hi-there">hi there<a class="link-icon" aria-label="link to heading" tabindex="0" href="#hi-there"><!--
 This svg icon comes from [Octicons](https://primer.style/design/foundations/icons),
 which has the following license:

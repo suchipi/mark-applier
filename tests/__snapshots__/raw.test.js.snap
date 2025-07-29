@@ -1,10 +1,12 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`--raw 1`] = `
 {
   "code": 0,
   "error": false,
-  "stderr": "WARNING: Skipping syntax highlighting for unknown language: no-highlight
+  "stderr": "(node:11623) [DEP0180] DeprecationWarning: fs.Stats constructor is deprecated.
+(Use \`node --trace-deprecation ...\` to show where the warning was created)
+WARNING: Skipping syntax highlighting for unknown language: no-highlight
 ",
   "stdout": "<h2 id="github-markdown-fixture">GitHub Markdown fixture<a class="link-icon" aria-label="link to heading" tabindex="0" href="#github-markdown-fixture"><!--
 This svg icon comes from [Octicons](https://primer.style/design/foundations/icons),

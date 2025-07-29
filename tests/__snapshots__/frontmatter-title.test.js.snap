@@ -1,10 +1,12 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`title (frontmatter) 1`] = `
 {
   "code": 0,
   "error": false,
   "stderr": "WARNING: I'd like to make links to external websites open in a new tab, but I can't do that unless you tell me where your website will be hosted. If you want that, specify your origin like this: '--origin https://example.com'.
+(node:11622) [DEP0180] DeprecationWarning: fs.Stats constructor is deprecated.
+(Use \`node --trace-deprecation ...\` to show where the warning was created)
 ",
   "stdout": "<!DOCTYPE html>
 <html lang="en">
